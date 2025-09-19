@@ -46,8 +46,20 @@
       max-width: 1040px; margin: 0 auto; padding: 14px 20px;
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
     }
-    .brand { font-weight: 800; letter-spacing: .3px; }
+
+    /* Brand 樣式修復 + 動畫 */
+    .brand {
+      display: inline-block;
+      font-weight: 800;
+      letter-spacing: .3px;
+      color: var(--fg);
+      white-space: nowrap;
+      line-height: 1;
+      transition: transform .25s ease, text-shadow .25s ease, color .25s ease;
+    }
     .brand .dot { color: var(--primary); }
+    .brand:hover { transform: translateY(-1px); text-shadow: 0 0 10px rgba(250, 204, 21, .35); }
+
     .nav-links { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
     .nav-links a {
       padding: 8px 12px;
@@ -108,10 +120,7 @@
       background: color-mix(in srgb, var(--card) 70%, transparent);
       transition: background .3s ease, color .3s ease;
     }
-    .badge:hover {
-      background: var(--primary);
-      color: #000;
-    }
+    .badge:hover { background: var(--primary); color: #000; }
 
     /* ===== Timeline for Experience ===== */
     .timeline { position: relative; margin: 0; padding-left: 18px; list-style: none; }
@@ -143,18 +152,9 @@
       cursor: pointer;
       transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
     }
-    .btn:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: var(--ring);
-    }
-    .btn.primary {
-      background: var(--primary);
-      color: #000;
-      border-color: transparent;
-    }
-    .btn.primary:hover {
-      background: var(--primary-2);
-    }
+    .btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: var(--ring); }
+    .btn.primary { background: var(--primary); color: #000; border-color: transparent; }
+    .btn.primary:hover { background: var(--primary-2); }
 
     /* ===== Footer ===== */
     footer {
