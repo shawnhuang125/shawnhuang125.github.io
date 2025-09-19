@@ -1,1 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Shawn Huang</title>
+  <meta name="description" content="Contact page for Shawn Huang" />
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --fg: #0b0c0f;
+      --muted: #555;
+      --card: #fff;
+      --border: #ddd;
+      --shadow: 0 6px 16px rgba(0,0,0,.1);
+      --primary: #2b6cb0;
+    }
+    body {margin:0; font:16px/1.6 system-ui, Arial, sans-serif; background:var(--bg); color:var(--fg);}
+    header {background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0;}
+    nav {max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:14px 20px;}
+    nav a {text-decoration:none; color:var(--fg); margin-left:20px; font-weight:500;}
+    nav a:hover {color:var(--primary);}
+    main {max-width:800px; margin:40px auto; padding:0 20px;}
+    h1 {font-size:2rem; margin-bottom:16px;}
+    .card {background:var(--card); padding:20px; border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow);}
+    footer {text-align:center; padding:20px; border-top:1px solid var(--border); color:var(--muted);}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo"><a href="index.html"><strong>Shawn Huang</strong></a></div>
+      <div>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
 
+  <main>
+    <h1>Contact Me</h1>
+    <div class="card">
+      <p>📧 Email: <a href="mailto:you@example.com">you@example.com</a></p>
+      <p>🐙 GitHub: <a href="https://github.com/your-username" target="_blank">@your-username</a></p>
+      <p>💼 LinkedIn: <a href="https://linkedin.com/in/your-id" target="_blank">/in/your-id</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <small>© <span id="year"></span> Shawn Huang — Built with ❤️ using GitHub Pages</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
