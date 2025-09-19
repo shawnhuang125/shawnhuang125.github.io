@@ -1,1 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Shawn Huang</title>
+  <meta name="description" content="Project portfolio of Shawn Huang" />
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --fg: #0b0c0f;
+      --muted: #555;
+      --card: #fff;
+      --border: #ddd;
+      --shadow: 0 6px 16px rgba(0,0,0,.1);
+      --primary: #2b6cb0;
+    }
+    body {margin:0; font:16px/1.6 system-ui, Arial, sans-serif; background:var(--bg); color:var(--fg);}
+    header {background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0;}
+    nav {max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:14px 20px;}
+    nav a {text-decoration:none; color:var(--fg); margin-left:20px; font-weight:500;}
+    nav a:hover {color:var(--primary);}
+    main {max-width:1000px; margin:40px auto; padding:0 20px;}
+    h1 {font-size:2rem; margin-bottom:16px;}
+    .grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;}
+    .card {background:var(--card); padding:20px; border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow);}
+    .card h2 {margin-top:0;}
+    .meta {font-size:14px; color:var(--muted);}
+    footer {text-align:center; padding:20px; border-top:1px solid var(--border); color:var(--muted);}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo"><a href="index.html"><strong>Shawn Huang</strong></a></div>
+      <div>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Projects</h1>
+    <div class="grid">
+      <div class="card">
+        <h2>Food AI Chatbot</h2>
+        <p class="meta">Python · Flask · MySQL · Vector DB</p>
+        <p>Conversational restaurant recommendation using APIs and reviews.</p>
+        <p><a href="https://github.com/your-username/food-chatbot" target="_blank">View Code →</a></p>
+      </div>
+      <div class="card">
+        <h2>Data ETL Pipeline</h2>
+        <p class="meta">Python · Pandas · SQL</p>
+        <p>Automated pipeline for cleaning and transforming raw data.</p>
+        <p><a href="https://github.com/your-username/etl-pipeline" target="_blank">View Code →</a></p>
+      </div>
+      <div class="card">
+        <h2>Frontend Showcase</h2>
+        <p class="meta">HTML · CSS · JS</p>
+        <p>Responsive static site with light/dark mode support.</p>
+        <p><a href="https://github.com/your-username/portfolio" target="_blank">View Code →</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <small>© <span id="year"></span> Shawn Huang — Built with ❤️ using GitHub Pages</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
