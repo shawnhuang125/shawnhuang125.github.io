@@ -7,7 +7,7 @@
   <meta name="description" content="Personal website: profile, education, and experience." />
   <meta name="color-scheme" content="light dark" />
   <style>
-    /* ===== Design Tokens ===== */
+    /* ===== Design Tokens (黑金主題) ===== */
     :root {
       --bg: #0d0d0d;
       --fg: #f5f5f5;
@@ -20,19 +20,6 @@
       --ring: 0 0 0 3px rgba(250, 204, 21, .25);
       --radius: 14px;
       --grad-1: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0b1320;
-        --fg: #e5e7eb;
-        --muted: #94a3b8;
-        --card: #0f172acc;
-        --border: #1f2937;
-        --shadow: 0 10px 30px rgba(0,0,0,.35);
-        --primary: #60a5fa;
-        --primary-2: #3b82f6;
-        --grad-1: linear-gradient(135deg, #0b1320 0%, #0f172a 100%);
-      }
     }
 
     /* ===== Base ===== */
@@ -63,10 +50,17 @@
     .brand .dot { color: var(--primary); }
     .nav-links { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
     .nav-links a {
-      padding: 8px 12px; border-radius: 10px; transition: .2s ease;
-      color: var(--muted); font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 10px;
+      transition: color .25s ease, background .25s ease, transform .25s ease;
+      color: var(--muted);
+      font-weight: 600;
     }
-    .nav-links a:hover { color: var(--primary); background: rgba(99,102,241,.08); }
+    .nav-links a:hover {
+      color: var(--primary);
+      background: rgba(250, 204, 21, 0.08);
+      transform: translateY(-2px);
+    }
 
     /* ===== Layout ===== */
     main { max-width: 880px; margin: 42px auto; padding: 0 20px 60px; }
@@ -81,6 +75,12 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 22px;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.75);
+      border-color: var(--primary);
     }
     .card + .card { margin-top: 16px; }
     .card p { margin: 0; }
@@ -97,12 +97,20 @@
       box-shadow: 0 0 0 6px color-mix(in srgb, var(--primary) 18%, transparent);
     }
 
-    /* ===== Badges / skills (可延伸使用) ===== */
-    .badges { display: flex; gap: 10px; flex-wrap: wrap; }
+    /* ===== Badges / skills ===== */
+    .badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
     .badge {
-      padding: 6px 10px; border-radius: 999px; font-size: 12px;
-      border: 1px solid var(--border); color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid var(--border);
+      color: var(--muted);
       background: color-mix(in srgb, var(--card) 70%, transparent);
+      transition: background .3s ease, color .3s ease;
+    }
+    .badge:hover {
+      background: var(--primary);
+      color: #000;
     }
 
     /* ===== Timeline for Experience ===== */
@@ -115,23 +123,46 @@
     .timeline li::before {
       content: ""; position: absolute; left: -1px; top: 18px;
       width: 10px; height: 10px; border-radius: 50%;
-      background: var(--primary); box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 20%, transparent);
+      background: var(--primary);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 20%, transparent);
     }
     .timeline strong { font-weight: 700; }
     .timeline .emph { color: var(--muted); font-weight: 600; }
 
-    /* ===== Buttons (可重用) ===== */
+    /* ===== Buttons ===== */
     .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border);
-      background: #fff0; color: var(--fg); font-weight: 700; cursor: pointer; transition: .2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff0;
+      color: var(--fg);
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
     }
-    .btn:hover { transform: translateY(-1px); box-shadow: var(--ring); }
-    .btn.primary { background: var(--primary); color: #fff; border-color: transparent; }
-    .btn.primary:hover { background: var(--primary-2); }
+    .btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: var(--ring);
+    }
+    .btn.primary {
+      background: var(--primary);
+      color: #000;
+      border-color: transparent;
+    }
+    .btn.primary:hover {
+      background: var(--primary-2);
+    }
 
     /* ===== Footer ===== */
-    footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); color: var(--muted); }
+    footer {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
 
     /* ===== Responsive ===== */
     @media (max-width: 560px) {
@@ -152,7 +183,6 @@
       <div class="nav-links">
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
-        <!-- 需要兩個入口時保留這兩個即可 -->
       </div>
     </nav>
   </header>
@@ -167,7 +197,7 @@
           Passionate about technology and continuous learning. Currently focusing on data pipelines,
           AI-driven applications, and cybersecurity.
         </p>
-        <div class="badges" style="margin-top:14px;">
+        <div class="badges">
           <span class="badge">Data Engineering</span>
           <span class="badge">AI / LLM</span>
           <span class="badge">Full-Stack</span>
@@ -221,17 +251,7 @@
   </footer>
 
   <script>
-    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // 小互動：鍵盤導覽時，按下 / 聚焦到第一個可點連結（可移除）
-    window.addEventListener('keydown', (e) => {
-      if (e.key === '/') {
-        e.preventDefault();
-        const link = document.querySelector('.nav-links a, a, button');
-        link && link.focus();
-      }
-    });
   </script>
 </body>
 </html>
