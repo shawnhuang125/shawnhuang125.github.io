@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shawn Huang | Profile Website</title>
+  <meta name="description" content="My GitHub profile page: projects, skills, and contact." />
+  <meta name="color-scheme" content="light dark" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Your Name | Profile Website" />
+  <meta property="og:description" content="My GitHub profile page: projects, skills, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/00000000?v=4" />
+  <meta property="og:url" content="https://your-username.github.io" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg: #0b0c0f;
+      --fg: #e9eef5;
+      --muted: #a9b1bd;
+      --card: #14161b;
+      --primary: #6ea8fe;
+      --accent: #7ee787;
+      --warn: #f7c948;
+      --link: #8db8ff;
+      --border: #23262d;
+      --shadow: 0 10px 30px rgba(0,0,0,.22);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f9fc; --fg:#0b0c0f; --muted:#546074; --card:#ffffff; --border:#e9edf2; --link:#2b6cb0; --shadow:0 8px 22px rgba(0,0,0,.08);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Helvetica, Arial;
+      background:var(--bg); color:var(--fg);
+    }
+    .container{max-width:1060px; margin:0 auto; padding:0 16px}
+    header{
+      position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px); background: color-mix(in oklab, var(--bg) 86%, transparent);
+      border-bottom:1px solid var(--border); z-index:10;
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; height:60px}
+    .nav a{color:var(--fg); text-decoration:none; opacity:.9}
+    .nav .links a{margin-left:18px}
+    .btn{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--border); background:var(--card); color:var(--fg); padding:8px 12px; border-radius:999px; box-shadow:var(--shadow); text-decoration:none}
+    .btn:hover{transform:translateY(-1px)}
+    .hero{padding:72px 0 36px}
+    .hero-inner{display:grid; grid-template-columns: 1fr; gap:24px; align-items:center}
+    .avatar{width:112px; height:112px; border-radius:50%; border:3px solid var(--border); box-shadow:var(--shadow)}
+    .tag{display:inline-flex; align-items:center; gap:8px; font-size:13px; padding:6px 10px; background:var(--card); border:1px solid var(--border); border-radius:999px; color:var(--muted)}
+    h1{font-size:clamp(28px,4vw,44px); line-height:1.15; margin:8px 0}
+    .subtitle{color:var(--muted); max-width:60ch}
+    .hero-cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
+    section{padding:32px 0}
+    .section-title{font-size:20px; letter-spacing:.4px; margin:0 0 12px}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+    .card{grid-column:span 12; background:var(--card); border:1px solid var(--border); border-radius:18px; padding:18px; box-shadow:var(--shadow)}
+    @media(min-width:720px){
+      .card.third{grid-column: span 4}
+      .card.half{grid-column: span 6}
+    }
+    .card h3{margin:0 0 8px; font-size:18px}
+    .card p{margin:0; color:var(--muted)}
+    .chips{display:flex; flex-wrap:wrap; gap:8px}
+    .chip{font-size:13px; padding:6px 10px; border:1px dashed var(--border); border-radius:999px; color:var(--muted)}
+    .project{display:flex; flex-direction:column; gap:10px}
+    .project .meta{font-size:13px; color:var(--muted)}
+    .project a{color:var(--link)}
+    .timeline{margin:0; padding:0; list-style:none}
+    .timeline li{position:relative; padding:0 0 16px 24px}
+    .timeline li::before{content:""; position:absolute; left:8px; top:4px; width:6px; height:6px; border-radius:50%; background:var(--accent)}
+    .timeline li::after{content:""; position:absolute; left:10px; top:14px; bottom:-4px; width:2px; background:var(--border)}
+    .timeline li:last-child::after{display:none}
+    footer{padding:28px 0; color:var(--muted); border-top:1px solid var(--border); margin-top:24px}
+    .sr-only{position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); border:0}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo" aria-label="Go to Home">Home</a>
+      <nav class="links" aria-label="Main Navigation">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle" class="btn" type="button" aria-pressed="false" aria-label="Toggle Theme">🌓 Theme</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <span class="tag">Open Source Enthusiast · Learning Full-Stack</span>
+          <h1>Hello, I am <strong>Shawn Huang</strong>.<br>I build Data Engineering, AI and Web applications.</h1>
+          <p class="subtitle">This is my GitHub profile website. I enjoy turning learning into products: from data collection, cleaning, to APIs and front-end interfaces. This page is fully static and can be deployed on GitHub Pages.</p>
+          <div class="hero-cta">
+            <a class="btn" href="https://github.com/shawnhuang125" target="_blank" rel="noopener">🌟 GitHub</a>
+            <a class="btn" href="#projects">Portfolio</a>
+            <a class="btn" href="#contact">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="grid">
+        <article class="card third project">
+          <h3>Food AI Chatbot</h3>
+          <div class="meta">Python · Flask · MySQL · Vector Database</div>
+          <p>Combines map API and reviews to provide local restaurant conversational recommendations.</p>
+          <p><a href="https://github.com/your-username/food-chatbot" target="_blank" rel="noopener">View Code →</a></p>
+        </article>
+        <article class="card third project">
+          <h3>Data ETL Pipeline</h3>
+          <div class="meta">Pandas · SQL · Automation</div>
+          <p>Transforms raw JSON to CSV/SQL, handles deduplication, adds fields, and version logging.</p>
+          <p><a href="https://github.com/your-username/etl-pipeline" target="_blank" rel="noopener">View Code →</a></p>
+        </article>
+        <article class="card third project">
+          <h3>Frontend Showcase</h3>
+          <div class="meta">HTML · CSS · JS</div>
+          <p>Static website with dark/light mode, responsive design, and accessibility basics.</p>
+          <p><a href="https://github.com/your-username/portfolio" target="_blank" rel="noopener">View Code →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills & Tools</h2>
+      <div class="card">
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">Flask</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Git / GitHub</span>
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Linux</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="card">
+        <p>I am an engineer passionate about learning and sharing, recently focusing on Data Engineering, Cybersecurity, and AI. I enjoy turning scattered knowledge into reusable templates and tools, and documenting them as blogs or guides.</p>
+        <p>This page itself is also a template: you can Fork it, replace the personal info and project links, and it becomes your GitHub profile site.</p>
+      </div>
+    </section>
+
+    <!-- Experience / Timeline -->
+    <section id="timeline">
+      <h2 class="section-title">Timeline</h2>
+      <div class="card">
+        <ul class="timeline">
+          <li>
+            <strong>2025 — Present</strong> · Self-learning Cybersecurity/Data Engineering · Project PM
+            <div class="meta">Led university projects, built data pipelines and ML experiments.</div>
+          </li>
+          <li>
+            <strong>2024</strong> · Internship (Software Testing)
+            <div class="meta">Wrote automation scripts, documented test cases, and optimized processes.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card">
+        <p>Feel free to reach me via:</p>
+        <p>
+          📧 Email: <a href="mailto:you@example.com">you@example.com</a><br>
+          🐙 GitHub: <a href="https://github.com/your-username" target="_blank" rel="noopener">@your-username</a><br>
+          💬 LinkedIn: <a href="https://www.linkedin.com/in/your-id" target="_blank" rel="noopener">/in/your-id</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> Your Name — Made with <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a> & ❤️</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggleBtn = document.getElementById('themeToggle');
+    toggleBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.dataset.theme !== 'light';
+      document.documentElement.dataset.theme = isDark ? 'light' : 'dark';
+      toggleBtn.setAttribute('aria-pressed', String(!isDark));
+    });
+    const ld = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Your Name",
+      "url": "https://your-username.github.io",
+      "sameAs": [
+        "https://github.com/your-username",
+        "https://www.linkedin.com/in/your-id"
+      ],
+      "knowsAbout": ["Data Engineering","Cybersecurity","Web Development"],
+      "jobTitle": "Engineer"
+    };
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.text = JSON.stringify(ld);
+    document.head.appendChild(s);
+  </script>
+</body>
+</html>
