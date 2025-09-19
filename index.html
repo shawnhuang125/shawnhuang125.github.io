@@ -75,7 +75,7 @@
     }
 
     /* ===== Page Layout ===== */
-    main { max-width: 1040px; margin: 42px auto; padding: 0 20px 60px; }
+    main { max-width: 1040px; margin: 42px auto; padding: 0 20px 60px; position: relative; z-index: 1; }
     section { margin: 40px 0; }
     h1 { font-size: clamp(28px, 4vw, 42px); letter-spacing: .2px; margin: 0 0 6px; }
     .subtitle { color: var(--muted); margin: 0 0 22px; font-size: clamp(14px, 2.3vw, 18px); }
@@ -138,83 +138,41 @@
     .timeline strong { font-weight: 700; }
     .timeline .emph { color: var(--muted); font-weight: 600; }
 
-    /* ===== Buttons ===== */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: #fff0;
-      color: var(--fg);
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    /* ===== Edge Decorative Art: 月亮上釣魚（不影響排版） ===== */
+    .edge-art {
+      position: fixed;                 /* 脫離文流，不推擠內容 */
+      top: 96px;                       /* 導覽列下方 */
+      left: max(0px, calc((100vw - 1040px) / 2 - 220px)); /* 貼齊版心左外側 */
+      width: clamp(240px, 28vw, 420px);
+      opacity: 0.95;
+      pointer-events: none;            /* 不擋互動 */
+      z-index: 0;                      /* 在內容底下 */
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,.55));
     }
-    .btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: var(--ring); }
-    .btn.primary { background: var(--primary); color: #000; border-color: transparent; }
-    .btn.primary:hover { background: var(--primary-2); }
+    @media (max-width: 1100px) {
+      .edge-art { left: 0; width: clamp(200px, 40vw, 320px); opacity: .85; }
+    }
+    @media (max-width: 760px) {
+      .edge-art { display: none; }     /* 手機隱藏避免遮擋 */
+    }
 
-    /* ===== Hero: 月亮上釣魚 (左) + 內容(右) ===== */
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 28px;
-      align-items: center;
-      margin-top: 24px;
-    }
-    .hero-art {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 12px;
-      display: grid;
-      place-items: center;
-      min-height: 320px;
-      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-    }
-    .hero-art:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0,0,0,.75);
-      border-color: var(--primary);
-    }
-    .hero-art svg { width: 100%; max-width: 520px; height: auto; display: block; }
-
-    /* 星星 & 光點閃爍 */
-    @keyframes twinkle {
-      0%, 100% { opacity: .25; }
-      50% { opacity: 1; }
-    }
-    .twinkle-1 { animation: twinkle 2.4s ease-in-out infinite; }
-    .twinkle-2 { animation: twinkle 3.1s ease-in-out infinite .3s; }
-    .twinkle-3 { animation: twinkle 2.8s ease-in-out infinite .8s; }
-
-    /* 月亮微微浮動 */
-    @keyframes floaty {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-    .floaty { animation: floaty 4.5s ease-in-out infinite; transform-origin: center; }
-
-    /* 釣竿線輕輕擺動 */
+    /* ===== 動畫 ===== */
+    @keyframes twinkle { 0%,100%{opacity:.25} 50%{opacity:1} }
+    @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
     @keyframes sway {
-      0%, 100% { d: path("M 300 110 C 340 150, 370 200, 360 240"); }
-      50% { d: path("M 300 110 C 345 155, 380 210, 365 250"); }
+      0%,100% { d: path("M 300 110 C 340 150, 370 200, 360 240"); }
+      50%     { d: path("M 300 110 C 345 155, 380 210, 365 250"); }
     }
-    path#line { animation: sway 3.6s ease-in-out infinite; }
+    @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+    .twinkle-1{animation:twinkle 2.4s ease-in-out infinite}
+    .twinkle-2{animation:twinkle 3.1s ease-in-out infinite .3s}
+    .twinkle-3{animation:twinkle 2.8s ease-in-out infinite .8s}
+    .floaty{animation:floaty 4.5s ease-in-out infinite;transform-origin:center}
+    #line{animation:sway 3.6s ease-in-out infinite}
+    #bobber{animation:bob 1.8s ease-in-out infinite;transform-origin:center}
 
-    /* 魚餌上下跳動 */
-    @keyframes bob {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
-    }
-    #bobber { animation: bob 1.8s ease-in-out infinite; transform-origin: center; }
-
-    /* 減少動態偏好 */
     @media (prefers-reduced-motion: reduce) {
-      .floaty, #bobber, path#line, .twinkle-1, .twinkle-2, .twinkle-3 { animation: none !important; }
+      .floaty, #bobber, #line, .twinkle-1, .twinkle-2, .twinkle-3 { animation: none !important; }
     }
 
     /* ===== Footer ===== */
@@ -225,11 +183,7 @@
       color: var(--muted);
     }
 
-    /* ===== Responsive ===== */
-    @media (max-width: 960px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-art { order: -1; min-height: 260px; }
-    }
+    /* ===== Responsive (小調) ===== */
     @media (max-width: 560px) {
       .nav-links { gap: 10px; }
       .nav-links a { padding: 6px 10px; }
@@ -252,73 +206,64 @@
     </nav>
   </header>
 
+  <!-- 裝飾：月亮上釣魚（不影響排版） -->
+  <div class="edge-art" aria-hidden="true">
+    <svg viewBox="0 0 520 360" role="img" aria-label="Person fishing on a crescent moon under twinkling stars">
+      <!-- stars -->
+      <g fill="#facc15">
+        <circle class="twinkle-1" cx="60"  cy="60"  r="2"/>
+        <circle class="twinkle-2" cx="120" cy="28"  r="2.5"/>
+        <circle class="twinkle-3" cx="210" cy="54"  r="1.8"/>
+        <circle class="twinkle-1" cx="430" cy="40"  r="2.2"/>
+        <circle class="twinkle-2" cx="480" cy="96"  r="2"/>
+        <circle class="twinkle-3" cx="360" cy="22"  r="1.6"/>
+      </g>
+
+      <!-- moon + person -->
+      <g class="floaty">
+        <path d="M290 220c-58 0-105-47-105-105 0-40 23-76 56-93-20 19-32 45-32 73 0 57 46 103 103 103 27 0 54-11 73-32-17 33-53 56-93 56z"
+              fill="#facc15" opacity="0.95"/>
+        <g transform="translate(240,135)">
+          <path d="M0 0 c 10 -6, 26 -6, 36 4 c 8 8, 8 18, 2 24 c -7 7, -22 8, -30 -2 c -6 -7, -7 -16, -8 -26z" fill="#0b0b0b"/>
+          <circle cx="32" cy="-10" r="8" fill="#0b0b0b"/>
+          <path d="M10 22 l-14 16" stroke="#0b0b0b" stroke-width="6" stroke-linecap="round"/>
+          <path d="M28 22 l12 18" stroke="#0b0b0b" stroke-width="6" stroke-linecap="round"/>
+          <path d="M34 -8 L68 -28" stroke="#0b0b0b" stroke-width="5" stroke-linecap="round"/>
+          <path d="M68 -28 L120 -46" stroke="#0b0b0b" stroke-width="4" stroke-linecap="round"/>
+          <!-- line -->
+          <path id="line" d="M 300 110 C 340 150, 370 200, 360 240" fill="none" stroke="#facc15" stroke-width="2.5"
+                stroke-linecap="round" transform="translate(-180,-140)"/>
+          <!-- bobber -->
+          <g id="bobber" transform="translate(180,100)">
+            <circle cx="180" cy="200" r="6" fill="#facc15" />
+          </g>
+        </g>
+      </g>
+
+      <!-- soft glow -->
+      <radialGradient id="glow" cx="0.5" cy="0.36" r="0.6">
+        <stop offset="0%" stop-color="rgba(250,204,21,0.35)"/>
+        <stop offset="100%" stop-color="rgba(250,204,21,0)"/>
+      </radialGradient>
+      <circle cx="290" cy="150" r="130" fill="url(#glow)"/>
+    </svg>
+  </div>
+
   <main>
-    <!-- Hero: 左動畫 + 右內容 -->
-    <section class="hero-grid" aria-label="intro section with moon fishing animation">
-      <!-- 左：月亮上釣魚動畫 -->
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 520 360" role="img" aria-label="Person fishing on a crescent moon under twinkling stars">
-          <!-- 背景星光 -->
-          <g fill="#facc15">
-            <circle class="twinkle-1" cx="60"  cy="60"  r="2"/>
-            <circle class="twinkle-2" cx="120" cy="28"  r="2.5"/>
-            <circle class="twinkle-3" cx="210" cy="54"  r="1.8"/>
-            <circle class="twinkle-1" cx="430" cy="40"  r="2.2"/>
-            <circle class="twinkle-2" cx="480" cy="96"  r="2"/>
-            <circle class="twinkle-3" cx="360" cy="22"  r="1.6"/>
-          </g>
-
-          <!-- 月亮 -->
-          <g class="floaty">
-            <path d="M290 220c-58 0-105-47-105-105 0-40 23-76 56-93-20 19-32 45-32 73 0 57 46 103 103 103 27 0 54-11 73-32-17 33-53 56-93 56z"
-                  fill="#facc15" opacity="0.95"/>
-            <!-- 月亮上的人（簡化剪影） -->
-            <g transform="translate(240,135)">
-              <!-- 身體 -->
-              <path d="M0 0 c 10 -6, 26 -6, 36 4 c 8 8, 8 18, 2 24 c -7 7, -22 8, -30 -2 c -6 -7, -7 -16, -8 -26z"
-                    fill="#0b0b0b" />
-              <!-- 頭 -->
-              <circle cx="32" cy="-10" r="8" fill="#0b0b0b"/>
-              <!-- 腿 -->
-              <path d="M10 22 l-14 16" stroke="#0b0b0b" stroke-width="6" stroke-linecap="round"/>
-              <path d="M28 22 l12 18" stroke="#0b0b0b" stroke-width="6" stroke-linecap="round"/>
-              <!-- 釣竿 -->
-              <path d="M34 -8 L68 -28" stroke="#0b0b0b" stroke-width="5" stroke-linecap="round"/>
-              <path d="M68 -28 L120 -46" stroke="#0b0b0b" stroke-width="4" stroke-linecap="round"/>
-              <!-- 線（擺動） -->
-              <path id="line" d="M 300 110 C 340 150, 370 200, 360 240" fill="none" stroke="#facc15" stroke-width="2.5"
-                    stroke-linecap="round" transform="translate(-180,-140)"/>
-              <!-- 魚餌 -->
-              <g id="bobber" transform="translate(180,100)">
-                <circle cx="180" cy="200" r="6" fill="#facc15" />
-              </g>
-            </g>
-          </g>
-
-          <!-- 柔光 -->
-          <radialGradient id="glow" cx="0.5" cy="0.36" r="0.6">
-            <stop offset="0%" stop-color="rgba(250,204,21,0.35)"/>
-            <stop offset="100%" stop-color="rgba(250,204,21,0)"/>
-          </radialGradient>
-          <circle cx="290" cy="150" r="130" fill="url(#glow)"/>
-        </svg>
-      </div>
-
-      <!-- 右：原本內容 -->
-      <div>
-        <h1>Hello, I am Shawn Huang.</h1>
-        <p class="subtitle">I build Data Engineering, AI, and Web applications.</p>
-        <div class="card">
-          <p>
-            Passionate about technology and continuous learning. Currently focusing on data pipelines,
-            AI-driven applications, and cybersecurity.
-          </p>
-          <div class="badges" style="margin-top:12px;">
-            <span class="badge">Data Engineering</span>
-            <span class="badge">AI / LLM</span>
-            <span class="badge">Full-Stack</span>
-            <span class="badge">Cybersecurity</span>
-          </div>
+    <!-- Profile -->
+    <section aria-labelledby="profile-heading">
+      <h1 id="profile-heading">Hello, I am Shawn Huang.</h1>
+      <p class="subtitle">I build Data Engineering, AI, and Web applications.</p>
+      <div class="card">
+        <p>
+          Passionate about technology and continuous learning. Currently focusing on data pipelines,
+          AI-driven applications, and cybersecurity.
+        </p>
+        <div class="badges" style="margin-top:12px;">
+          <span class="badge">Data Engineering</span>
+          <span class="badge">AI / LLM</span>
+          <span class="badge">Full-Stack</span>
+          <span class="badge">Cybersecurity</span>
         </div>
       </div>
     </section>
