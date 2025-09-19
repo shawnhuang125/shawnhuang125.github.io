@@ -5,34 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Shawn Huang</title>
   <meta name="description" content="Contact page for Shawn Huang" />
+  <meta name="color-scheme" content="light dark" />
   <style>
+    /* ===== Design Tokens (match index & projects) ===== */
     :root {
-      --bg: #f7f9fc;
+      --bg: #f6f8fb;
       --fg: #0b0c0f;
-      --muted: #555;
-      --card: #fff;
-      --border: #ddd;
-      --shadow: 0 6px 16px rgba(0,0,0,.1);
-      --primary: #2b6cb0;
+      --muted: #6b7280;
+      --card: #ffffffcc;
+      --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(15, 23, 42, .08);
+      --primary: #2563eb;
+      --primary-2: #1d4ed8;
+      --ring: 0 0 0 3px rgba(37, 99, 235, .15);
+      --radius: 14px;
+      --grad-1: linear-gradient(135deg, #e0e7ff 0%, #f0f9ff 100%);
     }
-    body {margin:0; font:16px/1.6 system-ui, Arial, sans-serif; background:var(--bg); color:var(--fg);}
-    header {background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0;}
-    nav {max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:14px 20px;}
-    nav a {text-decoration:none; color:var(--fg); margin-left:20px; font-weight:500;}
-    nav a:hover {color:var(--primary);}
-    main {max-width:800px; margin:40px auto; padding:0 20px;}
-    h1 {font-size:2rem; margin-bottom:16px;}
-    .card {background:var(--card); padding:20px; border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow);}
-    footer {text-align:center; padding:20px; border-top:1px solid var(--border); color:var(--muted);}
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1320;
+        --fg: #e5e7eb;
+        --muted: #94a3b8;
+        --card: #0f172acc;
+        --border: #1f2937;
+        --shadow: 0 10px 30px rgba(0,0,0,.35);
+        --primary: #60a5fa;
+        --primary-2: #3b82f6;
+        --grad-1: linear-gradient(135deg, #0b1320 0%, #0f172a 100%);
+      }
+    }
+
+    /* ===== Base ===== */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 16px/1.7 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      color: var(--fg);
+      background: var(--grad-1) fixed;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible { outline: none; box-shadow: var(--ring); border-radius: 8px; }
+
+    /* ===== Header / Nav ===== */
+    header {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: saturate(120%) blur(10px);
+      background: color-mix(in srgb, var(--card) 80%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    nav {
+      max-width: 1040px; margin: 0 auto; padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .brand { font-weight: 800; letter-spacing: .3px; }
+    .brand .dot { color: var(--primary); }
+    .nav-links { display: flex; gap: 18px; }
+    .nav-links a {
+      padding: 8px 12px; border-radius: 10px; transition: .2s ease;
+      color: var(--muted); font-weight: 600;
+    }
+    .nav-links a:hover { color: var(--primary); background: rgba(99,102,241,.08); }
+
+    /* ===== Layout ===== */
+    main { max-width: 720px; margin: 42px auto; padding: 0 20px 60px; }
+    h1 { font-size: clamp(26px, 4vw, 38px); margin: 0 0 20px; }
+
+    /* ===== Card ===== */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .card p { margin: 0; font-size: 15px; }
+    .card a { font-weight: 600; }
+
+    /* ===== Footer ===== */
+    footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); color: var(--muted); }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <div class="logo"><a href="index.html"><strong>Shawn Huang's Portfolio</strong></a></div>
-      <div>
+      <a class="brand" href="index.html">Shawn Huang<span class="dot">.</span> Portfolio</a>
+      <div class="nav-links">
         <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" aria-current="page">Contact</a>
       </div>
     </nav>
   </header>
@@ -40,8 +101,8 @@
   <main>
     <h1>Contact Me</h1>
     <div class="card">
-      <p>📧 Email: <a href="mailto:you@example.com">you@example.com</a></p>
-      <p>🐙 GitHub: <a href="https://github.com/your-username" target="_blank">@your-username</a></p>
+      <p>📧 Email: <a href="s0909799081@gmail.com">s0909799081@gmail.com</a></p>
+      <p>🐙 GitHub: <a href="https://github.com/shawnhuang125" target="_blank">https://github.com/shawnhuang125</a></p>
       <p>💼 LinkedIn: <a href="https://linkedin.com/in/your-id" target="_blank">/in/your-id</a></p>
     </div>
   </main>
