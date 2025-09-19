@@ -33,7 +33,7 @@
       background: var(--grad-1) fixed;
     }
 
-    /* Header */
+    /* ===== Header ===== */
     header {
       position: sticky; top: 0; z-index: 20;
       backdrop-filter: saturate(120%) blur(10px);
@@ -44,8 +44,24 @@
       max-width: 1040px; margin: 0 auto; padding: 14px 20px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .brand { font-weight: 800; }
+
+    /* Brand 樣式修復 */
+    .brand {
+      display: inline-block;
+      font-weight: 800;
+      letter-spacing: .3px;
+      color: var(--fg);
+      white-space: nowrap;
+      line-height: 1;
+      transition: transform .25s ease, text-shadow .25s ease, color .25s ease;
+    }
     .brand .dot { color: var(--primary); }
+    .brand:hover {
+      transform: translateY(-1px);
+      text-shadow: 0 0 10px rgba(250, 204, 21, .35);
+    }
+
+    /* Nav links */
     .nav-links { display: flex; gap: 18px; }
     .nav-links a {
       padding: 8px 12px; border-radius: 10px;
@@ -58,18 +74,18 @@
       transform: translateY(-2px);
     }
 
-    /* Layout */
+    /* ===== Layout ===== */
     main { max-width: 720px; margin: 42px auto; padding: 0 20px 60px; }
     h1 { font-size: clamp(26px, 4vw, 38px); margin-bottom: 20px; }
 
-    /* Card */
+    /* ===== Card ===== */
     .card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 24px;
-      display: flex; justify-content: center; gap: 24px;
+      display: flex; justify-content: center; gap: 28px;
       transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
     }
     .card:hover {
@@ -78,9 +94,9 @@
       border-color: var(--primary);
     }
 
-    /* Icon Links */
+    /* ===== Icon Links ===== */
     .social a {
-      font-size: 28px;
+      font-size: 30px;
       color: var(--muted);
       transition: color .25s ease, transform .25s ease;
     }
@@ -89,6 +105,7 @@
       transform: scale(1.2);
     }
 
+    /* ===== Footer ===== */
     footer {
       text-align: center;
       padding: 24px;
