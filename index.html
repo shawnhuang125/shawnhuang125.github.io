@@ -7,71 +7,210 @@
   <meta name="description" content="Personal website: profile, education, and experience." />
   <meta name="color-scheme" content="light dark" />
   <style>
+    /* ===== Design Tokens ===== */
     :root {
-      --bg: #f7f9fc;
+      --bg: #f6f8fb;
       --fg: #0b0c0f;
-      --muted: #555;
-      --card: #fff;
-      --border: #ddd;
-      --shadow: 0 6px 16px rgba(0,0,0,.1);
-      --primary: #2b6cb0;
+      --muted: #6b7280;
+      --card: #ffffffcc;
+      --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(15, 23, 42, .08);
+      --primary: #2563eb;
+      --primary-2: #1d4ed8;
+      --ring: 0 0 0 3px rgba(37, 99, 235, .15);
+      --radius: 14px;
+      --grad-1: linear-gradient(135deg, #e0e7ff 0%, #f0f9ff 100%);
     }
-    body {margin:0; font:16px/1.6 system-ui, Arial, sans-serif; background:var(--bg); color:var(--fg);}
-    header {background:#fff; border-bottom:1px solid var(--border); position:sticky; top:0;}
-    nav {max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:14px 20px;}
-    nav a {text-decoration:none; color:var(--fg); margin-left:20px; font-weight:500;}
-    nav a:hover {color:var(--primary);}
-    main {max-width:800px; margin:40px auto; padding:0 20px;}
-    h1 {font-size:2rem; margin-bottom:8px;}
-    .subtitle {color:var(--muted); margin-bottom:24px;}
-    section {margin:40px 0;}
-    .card {background:var(--card); padding:20px; border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow); margin-bottom:20px;}
-    h2 {margin-top:0; font-size:1.5rem;}
-    ul {margin:0; padding-left:20px;}
-    footer {text-align:center; padding:20px; border-top:1px solid var(--border); color:var(--muted);}
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1320;
+        --fg: #e5e7eb;
+        --muted: #94a3b8;
+        --card: #0f172acc;
+        --border: #1f2937;
+        --shadow: 0 10px 30px rgba(0,0,0,.35);
+        --primary: #60a5fa;
+        --primary-2: #3b82f6;
+        --grad-1: linear-gradient(135deg, #0b1320 0%, #0f172a 100%);
+      }
+    }
+
+    /* ===== Base ===== */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font: 16px/1.7 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      color: var(--fg);
+      background: var(--grad-1) fixed;
+      background-attachment: fixed;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: none; box-shadow: var(--ring); border-radius: 10px; }
+
+    /* ===== Header / Nav ===== */
+    header {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: saturate(120%) blur(10px);
+      background: color-mix(in srgb, var(--card) 80%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    nav {
+      max-width: 1040px; margin: 0 auto; padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .brand { font-weight: 800; letter-spacing: .3px; }
+    .brand .dot { color: var(--primary); }
+    .nav-links { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+    .nav-links a {
+      padding: 8px 12px; border-radius: 10px; transition: .2s ease;
+      color: var(--muted); font-weight: 600;
+    }
+    .nav-links a:hover { color: var(--primary); background: rgba(99,102,241,.08); }
+
+    /* ===== Layout ===== */
+    main { max-width: 880px; margin: 42px auto; padding: 0 20px 60px; }
+    section { margin: 40px 0; }
+    h1 { font-size: clamp(28px, 4vw, 42px); letter-spacing: .2px; margin: 0 0 6px; }
+    .subtitle { color: var(--muted); margin: 0 0 22px; font-size: clamp(14px, 2.3vw, 18px); }
+
+    /* ===== Card ===== */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .card + .card { margin-top: 16px; }
+    .card p { margin: 0; }
+
+    /* ===== Section titles ===== */
+    h2 {
+      font-size: clamp(20px, 2.6vw, 26px);
+      margin: 0 0 14px;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    h2::after {
+      content: ""; height: 6px; width: 6px; border-radius: 50%;
+      background: var(--primary); display: inline-block;
+      box-shadow: 0 0 0 6px color-mix(in srgb, var(--primary) 18%, transparent);
+    }
+
+    /* ===== Badges / skills (可延伸使用) ===== */
+    .badges { display: flex; gap: 10px; flex-wrap: wrap; }
+    .badge {
+      padding: 6px 10px; border-radius: 999px; font-size: 12px;
+      border: 1px solid var(--border); color: var(--muted);
+      background: color-mix(in srgb, var(--card) 70%, transparent);
+    }
+
+    /* ===== Timeline for Experience ===== */
+    .timeline { position: relative; margin: 0; padding-left: 18px; list-style: none; }
+    .timeline::before {
+      content: ""; position: absolute; left: 7px; top: 4px; bottom: 4px;
+      width: 2px; background: color-mix(in srgb, var(--muted) 26%, transparent);
+    }
+    .timeline li { position: relative; padding: 12px 0 12px 16px; }
+    .timeline li::before {
+      content: ""; position: absolute; left: -1px; top: 18px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--primary); box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 20%, transparent);
+    }
+    .timeline strong { font-weight: 700; }
+    .timeline .emph { color: var(--muted); font-weight: 600; }
+
+    /* ===== Buttons (可重用) ===== */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border);
+      background: #fff0; color: var(--fg); font-weight: 700; cursor: pointer; transition: .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: var(--ring); }
+    .btn.primary { background: var(--primary); color: #fff; border-color: transparent; }
+    .btn.primary:hover { background: var(--primary-2); }
+
+    /* ===== Footer ===== */
+    footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); color: var(--muted); }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 560px) {
+      .nav-links { gap: 10px; }
+      .nav-links a { padding: 6px 10px; }
+      .timeline::before { left: 5px; }
+      .timeline li { padding-left: 14px; }
+      .timeline li::before { left: -3px; }
+    }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <div class="logo"><a href="index.html"><strong>Shawn Huang's Portfolio</strong></a></div>
-      <div>
+      <a class="brand" href="index.html" aria-label="Go to home">
+        Shawn Huang<span class="dot">.</span> Portfolio
+      </a>
+      <div class="nav-links">
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
+        <!-- 需要兩個入口時保留這兩個即可 -->
       </div>
     </nav>
   </header>
 
   <main>
     <!-- Profile -->
-    <section>
-      <h1>Hello, I am Shawn Huang.</h1>
+    <section aria-labelledby="profile-heading">
+      <h1 id="profile-heading">Hello, I am Shawn Huang.</h1>
       <p class="subtitle">I build Data Engineering, AI, and Web applications.</p>
       <div class="card">
-        <p>Passionate about technology and continuous learning. Currently focusing on data pipelines, AI-driven applications, and cybersecurity.</p>
+        <p>
+          Passionate about technology and continuous learning. Currently focusing on data pipelines,
+          AI-driven applications, and cybersecurity.
+        </p>
+        <div class="badges" style="margin-top:14px;">
+          <span class="badge">Data Engineering</span>
+          <span class="badge">AI / LLM</span>
+          <span class="badge">Full-Stack</span>
+          <span class="badge">Cybersecurity</span>
+        </div>
       </div>
     </section>
 
     <!-- Education -->
-    <section>
-      <h2>Education</h2>
+    <section aria-labelledby="edu-heading">
+      <h2 id="edu-heading">Education</h2>
       <div class="card">
-        <ul>
+        <ul style="margin:0; padding-left:18px;">
           <li><strong>B.S. in Computer Science</strong></li>
         </ul>
       </div>
     </section>
 
     <!-- Experience -->
-    <section>
-      <h2>Experience</h2>
+    <section aria-labelledby="exp-heading">
+      <h2 id="exp-heading">Experience</h2>
       <div class="card">
-        <ul>
-          <li><strong>202502 – Present:</strong> Project Manager of AI FoodChatBot Mible APP.</li>
-          <li><strong>202504 – Present:</strong> Self-learning in Data Engineering</li>
-          <li><strong>202501 – Present:</strong> Self-learning in Full-stack Development.</li>
-          <li><strong>202401 – 202504:</strong> Self-learning in Cybersecurity</li>
-          <li><strong>202507-202508:</strong> Software Testing Intern – wrote automation scripts, documented test cases, optimized workflows</li>
+        <ul class="timeline">
+          <li>
+            <strong>2025-02 – Present:</strong>
+            <span class="emph">Project Manager</span> — AI FoodChatBot Mobile App
+          </li>
+          <li>
+            <strong>2025-04 – Present:</strong>
+            Self-learning in Data Engineering
+          </li>
+          <li>
+            <strong>2025-01 – Present:</strong>
+            Self-learning in Full-stack Development
+          </li>
+          <li>
+            <strong>2024-01 – 2025-04:</strong>
+            Self-learning in Cybersecurity
+          </li>
+          <li>
+            <strong>2025-07 – 2025-08:</strong>
+            Software Testing Intern — automation scripts, test case docs, workflow optimization
+          </li>
         </ul>
       </div>
     </section>
@@ -82,7 +221,17 @@
   </footer>
 
   <script>
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 小互動：鍵盤導覽時，按下 / 聚焦到第一個可點連結（可移除）
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '/') {
+        e.preventDefault();
+        const link = document.querySelector('.nav-links a, a, button');
+        link && link.focus();
+      }
+    });
   </script>
 </body>
 </html>
