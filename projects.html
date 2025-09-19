@@ -7,7 +7,7 @@
   <meta name="description" content="Project portfolio of Shawn Huang" />
   <meta name="color-scheme" content="light dark" />
   <style>
-    /* ===== Design Tokens (match index.html) ===== */
+    /* ===== Design Tokens (match index.html - 黑金) ===== */
     :root {
       --bg: #0d0d0d;
       --fg: #f5f5f5;
@@ -20,19 +20,6 @@
       --ring: 0 0 0 3px rgba(250, 204, 21, .25);
       --radius: 14px;
       --grad-1: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0b1320;
-        --fg: #e5e7eb;
-        --muted: #94a3b8;
-        --card: #0f172acc;
-        --border: #1f2937;
-        --shadow: 0 10px 30px rgba(0,0,0,.35);
-        --primary: #60a5fa;
-        --primary-2: #3b82f6;
-        --grad-1: linear-gradient(135deg, #0b1320 0%, #0f172a 100%);
-      }
     }
 
     /* ===== Base ===== */
@@ -63,10 +50,15 @@
     .brand .dot { color: var(--primary); }
     .nav-links { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
     .nav-links a {
-      padding: 8px 12px; border-radius: 10px; transition: .2s ease;
+      padding: 8px 12px; border-radius: 10px;
       color: var(--muted); font-weight: 600;
+      transition: color .25s ease, background .25s ease, transform .25s ease;
     }
-    .nav-links a:hover { color: var(--primary); background: rgba(99,102,241,.08); }
+    .nav-links a:hover {
+      color: var(--primary);
+      background: rgba(250, 204, 21, 0.08); /* 金色淡光 */
+      transform: translateY(-2px);
+    }
 
     /* ===== Layout ===== */
     main { max-width: 1040px; margin: 42px auto; padding: 0 20px 60px; }
@@ -86,9 +78,13 @@
       box-shadow: var(--shadow);
       padding: 20px;
       display: flex; flex-direction: column; gap: 10px;
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
     }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(15,23,42,.12); border-color: color-mix(in srgb, var(--primary) 22%, var(--border)); }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.75);
+      border-color: var(--primary);
+    }
     .card h2 { margin: 2px 0 0; font-size: 1.2rem; }
     .meta { font-size: 13px; color: var(--muted); }
     .desc { margin: 2px 0 8px; }
@@ -99,16 +95,20 @@
       padding: 5px 9px; border-radius: 999px; font-size: 12px;
       border: 1px solid var(--border); color: var(--muted);
       background: color-mix(in srgb, var(--card) 70%, transparent);
+      transition: background .3s ease, color .3s ease;
     }
+    .badge:hover { background: var(--primary); color: #000; }
+
     .actions { margin-top: auto; display: flex; gap: 10px; align-items: center; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 9px 12px; border-radius: 12px; border: 1px solid var(--border);
-      background: #fff0; color: var(--fg); font-weight: 700; cursor: pointer; transition: .2s ease;
+      background: #fff0; color: var(--fg); font-weight: 700; cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
       font-size: 14px;
     }
-    .btn:hover { transform: translateY(-1px); box-shadow: var(--ring); }
-    .btn.primary { background: var(--primary); color: #fff; border-color: transparent; }
+    .btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: var(--ring); }
+    .btn.primary { background: var(--primary); color: #000; border-color: transparent; }
     .btn.primary:hover { background: var(--primary-2); }
 
     /* ===== Footer ===== */
@@ -177,6 +177,8 @@
           <a class="btn primary" href="https://github.com/shawnhuang125/multi-platform-audio-converter" target="_blank" rel="noreferrer">View Code →</a>
         </div>
       </article>
+
+      <!-- 你下面兩個條目內容相同，如非刻意，可改其他專案或先移除 -->
       <article class="card">
         <h2>Multi-Platform Audio Converter</h2>
         <p class="meta">HTML · CSS · JS · Python Flask · python-socketio</p>
@@ -188,6 +190,7 @@
           <a class="btn primary" href="https://github.com/shawnhuang125/multi-platform-audio-converter" target="_blank" rel="noreferrer">View Code →</a>
         </div>
       </article>
+
       <article class="card">
         <h2>Multi-Platform Audio Converter</h2>
         <p class="meta">HTML · CSS · JS · Python Flask · python-socketio</p>
