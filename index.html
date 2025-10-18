@@ -6,6 +6,10 @@
   <title>Shawn Huang | Profile</title>
   <meta name="description" content="Personal website: profile, education, and experience." />
   <meta name="color-scheme" content="light dark" />
+
+  <!-- ✅ Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     /* ===== Design Tokens (黑金主題) ===== */
     :root {
@@ -20,8 +24,6 @@
       --ring: 0 0 0 3px rgba(250, 204, 21, .25);
       --radius: 14px;
       --grad-1: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-
-      /* 🌙 控制月亮動畫距離版心的偏移量（愈大愈靠左） */
       --edge-offset: 420px;
     }
 
@@ -76,7 +78,7 @@
       transform: translateY(-2px);
     }
 
-    /* ===== Page Layout ===== */
+    /* ===== Layout ===== */
     main { max-width: 1040px; margin: 42px auto; padding: 0 20px 60px; position: relative; z-index: 1; }
     section { margin: 40px 0; }
     h1 { font-size: clamp(28px, 4vw, 42px); letter-spacing: .2px; margin: 0 0 6px; }
@@ -96,85 +98,22 @@
       box-shadow: 0 16px 40px rgba(0,0,0,.75);
       border-color: var(--primary);
     }
-    .card + .card { margin-top: 16px; }
-    .card p { margin: 0; }
 
-    /* ===== Section titles ===== */
-    h2 {
-      font-size: clamp(20px, 2.6vw, 26px);
-      margin: 0 0 14px;
-      display: inline-flex; align-items: center; gap: 10px;
+    /* ===== Social Icons ===== */
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 40px;
     }
-    h2::after {
-      content: ""; height: 6px; width: 6px; border-radius: 50%;
-      background: var(--primary); display: inline-block;
-      box-shadow: 0 0 0 6px color-mix(in srgb, var(--primary) 18%, transparent);
-    }
-
-    /* ===== Badges / skills ===== */
-    .badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-    .badge {
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      border: 1px solid var(--border);
+    .social a {
+      font-size: 30px;
       color: var(--muted);
-      background: color-mix(in srgb, var(--card) 70%, transparent);
-      transition: background .3s ease, color .3s ease;
+      transition: color .25s ease, transform .25s ease;
     }
-    .badge:hover { background: var(--primary); color: #000; }
-
-    /* ===== Timeline for Experience ===== */
-    .timeline { position: relative; margin: 0; padding-left: 18px; list-style: none; }
-    .timeline::before {
-      content: ""; position: absolute; left: 7px; top: 4px; bottom: 4px;
-      width: 2px; background: color-mix(in srgb, var(--muted) 26%, transparent);
-    }
-    .timeline li { position: relative; padding: 12px 0 12px 16px; }
-    .timeline li::before {
-      content: ""; position: absolute; left: -1px; top: 18px;
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--primary);
-      box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 20%, transparent);
-    }
-    .timeline strong { font-weight: 700; }
-    .timeline .emph { color: var(--muted); font-weight: 600; }
-
-    /* ===== Edge Decorative Art ===== */
-    .edge-art {
-      position: fixed;
-      top: 96px;
-      left: max(0px, calc((100vw - 1040px) / 2 - var(--edge-offset)));
-      width: clamp(240px, 28vw, 420px);
-      opacity: 0.95;
-      pointer-events: none;
-      z-index: 0;
-      filter: drop-shadow(0 10px 30px rgba(0,0,0,.55));
-    }
-    @media (max-width: 1100px) {
-      .edge-art { left: 0; width: clamp(200px, 40vw, 320px); opacity: .85; }
-    }
-    @media (max-width: 760px) {
-      .edge-art { display: none; }
-    }
-
-    /* ===== 動畫 ===== */
-    @keyframes twinkle { 0%,100%{opacity:.25} 50%{opacity:1} }
-    @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-    @keyframes sway {
-      0%,100% { d: path("M 300 110 C 340 150, 370 200, 360 240"); }
-      50%     { d: path("M 300 110 C 345 155, 380 210, 365 250"); }
-    }
-    @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
-    .twinkle-1{animation:twinkle 2.4s ease-in-out infinite}
-    .twinkle-2{animation:twinkle 3.1s ease-in-out infinite .3s}
-    .twinkle-3{animation:twinkle 2.8s ease-in-out infinite .8s}
-    .floaty{animation:floaty 4.5s ease-in-out infinite;transform-origin:center}
-    #line{animation:sway 3.6s ease-in-out infinite}
-    #bobber{animation:bob 1.8s ease-in-out infinite;transform-origin:center}
-
-    @media (prefers-reduced-motion: reduce) {
-      .floaty, #bobber, #line, .twinkle-1, .twinkle-2, .twinkle-3 { animation: none !important; }
+    .social a:hover {
+      color: var(--primary);
+      transform: scale(1.2);
     }
 
     /* ===== Footer ===== */
@@ -199,50 +138,13 @@
     </nav>
   </header>
 
-  <!-- 裝飾：月亮上釣魚 -->
-  <div class="edge-art" aria-hidden="true">
-    <svg viewBox="0 0 520 360" role="img" aria-label="Person fishing on a crescent moon under twinkling stars">
-      <g fill="#facc15">
-        <circle class="twinkle-1" cx="60"  cy="60"  r="2"/>
-        <circle class="twinkle-2" cx="120" cy="28"  r="2.5"/>
-        <circle class="twinkle-3" cx="210" cy="54"  r="1.8"/>
-        <circle class="twinkle-1" cx="430" cy="40"  r="2.2"/>
-        <circle class="twinkle-2" cx="480" cy="96"  r="2"/>
-        <circle class="twinkle-3" cx="360" cy="22"  r="1.6"/>
-      </g>
-      <g class="floaty">
-        <path d="M290 220c-58 0-105-47-105-105 0-40 23-76 56-93-20 19-32 45-32 73 0 57 46 103 103 103 27 0 54-11 73-32-17 33-53 56-93 56z"
-              fill="#facc15" opacity="0.95"/>
-        <g transform="translate(240,135)">
-          <path d="M0 0 c 10 -6, 26 -6, 36 4 c 8 8, 8 18, 2 24 c -7 7, -22 8, -30 -2 c -6 -7, -7 -16, -8 -26z" fill="#0b0b0b"/>
-          <circle cx="32" cy="-10" r="8" fill="#0b0b0b"/>
-          <path d="M10 22 l-14 16" stroke="#0b0b0b" stroke-width="6" stroke-linecap="round"/>
-          <path d="M28 22 l12 18" stroke="#0b0b0b" stroke-width="6" stroke-linecap="round"/>
-          <path d="M34 -8 L68 -28" stroke="#0b0b0b" stroke-width="5" stroke-linecap="round"/>
-          <path d="M68 -28 L120 -46" stroke="#0b0b0b" stroke-width="4" stroke-linecap="round"/>
-          <path id="line" d="M 300 110 C 340 150, 370 200, 360 240" fill="none" stroke="#facc15" stroke-width="2.5"
-                stroke-linecap="round" transform="translate(-180,-140)"/>
-          <g id="bobber" transform="translate(180,100)">
-            <circle cx="180" cy="200" r="6" fill="#facc15" />
-          </g>
-        </g>
-      </g>
-      <radialGradient id="glow" cx="0.5" cy="0.36" r="0.6">
-        <stop offset="0%" stop-color="rgba(250,204,21,0.35)"/>
-        <stop offset="100%" stop-color="rgba(250,204,21,0)"/>
-      </radialGradient>
-      <circle cx="290" cy="150" r="130" fill="url(#glow)"/>
-    </svg>
-  </div>
-
+  <!-- 主內容 -->
   <main>
     <section aria-labelledby="profile-heading">
       <h1 id="profile-heading">Hello, I am Shawn Huang.</h1>
       <p class="subtitle">I build Data Engineering and Web applications.</p>
       <div class="card">
-        <p>
-          Passionate about technology and continuous learning. Currently focusing on data pipelines.
-        </p>
+        <p>Passionate about technology and continuous learning. Currently focusing on data pipelines.</p>
         <div class="badges" style="margin-top:12px;">
           <span class="badge">Data Engineering</span>
           <span class="badge">Full-Stack</span>
@@ -263,53 +165,37 @@
       <h2 id="exp-heading">Experience</h2>
       <div class="card">
         <ul class="timeline">
-          <li>
-            <strong>2025-01 - </strong>
-            專題開發-AI美食聊天機器人-專題組長
-          </li>
-          <li>
-            <strong>2025-01 - </strong>
-            專題開發-AI美食聊天機器人-資料蒐集人員
-          </li>
-          <li>
-            <strong>2025-07 – 2025-08</strong>
-            森淨科技-軟體測試工程師-實習生
-          </li>
-          <li>
-            <strong>2024-02 – 2025-02</strong>
-             資通安全實務人才培育計畫-CTF平台運維人員(崑山機房)
-          </li>
+          <li><strong>2025-01 - </strong> 專題開發-AI美食聊天機器人-專題組長</li>
+          <li><strong>2025-01 - </strong> 專題開發-AI美食聊天機器人-資料蒐集人員</li>
+          <li><strong>2025-07 – 2025-08</strong> 森淨科技-軟體測試工程師-實習生</li>
+          <li><strong>2024-02 – 2025-02</strong> 資通安全實務人才培育計畫-CTF平台運維人員(崑山機房)</li>
         </ul>
       </div>
     </section>
-    <section aria-labelledby="cert-heading">
-  <h2 id="cert-heading">Certification</h2>
-  <div class="card">
-    <ul class="timeline">
-      <li>
-        <strong>2024-11:</strong>
-        IPAS資訊安全工程師-初級
-      </li>
-      <li>
-        <strong>2024-11:</strong>
-        TQC-OS Linux系統管理 專業級
-      </li>
-    </ul>
-  </div>
-</section>
-  </main>
 
-  <main>
-    <h1>Contact Me</h1>
-    <div class="card social">
-      <a href="mailto:s0909799081@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/shawnhuang125" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/your-id" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div>
+    <section aria-labelledby="cert-heading">
+      <h2 id="cert-heading">Certification</h2>
+      <div class="card">
+        <ul class="timeline">
+          <li><strong>2024-11:</strong> IPAS資訊安全工程師-初級</li>
+          <li><strong>2024-11:</strong> TQC-OS Linux系統管理 專業級</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ✅ Contact Me 區塊整合於 Footer 前 -->
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Me</h2>
+      <div class="card social">
+        <a href="mailto:s0909799081@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/shawnhuang125" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/your-id" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <small>© <span id="year"></span> Shawn Huang — Built with love using GitHub Pages</small>
+    <small>© <span id="year"></span> Shawn Huang — Built with ❤️ using GitHub Pages</small>
   </footer>
 
   <script>
