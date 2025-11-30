@@ -7,6 +7,7 @@
   <meta name="description" content="Personal website: profile, education, and experience." />
   <meta name="color-scheme" content="light dark" />
 
+  <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
@@ -115,6 +116,26 @@
       transform: scale(1.2);
     }
 
+    /* ===== Badges (已更新為按鈕樣式) ===== */
+    .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge {
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: color-mix(in srgb, var(--card) 70%, transparent);
+      /* 新增游標與轉場 */
+      cursor: pointer;
+      transition: background .3s ease, color .3s ease, transform .25s ease, border-color .3s ease;
+    }
+    .badge:hover {
+      background: var(--primary);     /* 金色背景 */
+      color: #0d0d0d;                 /* 深色文字 */
+      border-color: transparent;      /* 隱藏邊框 */
+      transform: translateY(-2px);    /* 上浮效果 */
+    }
+
     /* ===== Footer ===== */
     footer {
       text-align: center;
@@ -136,6 +157,7 @@
     </nav>
   </header>
 
+  <!-- 主內容 -->
   <main>
     <section aria-labelledby="profile-heading">
       <h1 id="profile-heading">Hello, I am Shawn Huang.</h1>
@@ -143,6 +165,7 @@
       <div class="card">
         <p>Passionate about technology and continuous learning. Currently focusing on data pipelines.</p>
         <div class="badges" style="margin-top:12px;">
+          <!-- 這些 badge 現在滑鼠移上去會有金色按鈕效果 -->
           <span class="badge">Data Engineering</span>
           <span class="badge">Full-Stack</span>
         </div>
@@ -180,6 +203,7 @@
       </div>
     </section>
 
+    <!-- Contact Me 區塊 -->
     <section aria-labelledby="contact-heading">
       <h2 id="contact-heading">Contact Me</h2>
       <div class="card social">
