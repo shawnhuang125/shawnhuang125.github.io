@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* ===== Design Tokens (沿用黑金主題) ===== */
+    /* ===== Design Tokens ===== */
     :root {
       --bg: #0d0d0d;
       --fg: #f5f5f5;
@@ -24,7 +24,7 @@
       --grad-1: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
     }
 
-    /* ===== Base (沿用) ===== */
+    /* ===== Base ===== */
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
@@ -32,16 +32,19 @@
       font: 16px/1.7 ui-sans-serif, system-ui, -apple-system, sans-serif;
       color: var(--fg);
       background: var(--grad-1) fixed;
+      display: flex;       /* 新增：使用 Flexbox 讓 Footer 置底 */
+      flex-direction: column;
     }
     a { color: inherit; text-decoration: none; transition: color .25s ease; }
     a:hover { color: var(--primary); }
 
-    /* ===== Header / Nav (沿用) ===== */
+    /* ===== Header ===== */
     header {
       position: sticky; top: 0; z-index: 20;
       backdrop-filter: saturate(120%) blur(10px);
       background: color-mix(in srgb, var(--card) 80%, transparent);
       border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
     }
     nav {
       max-width: 1040px; margin: 0 auto; padding: 14px 20px;
@@ -51,7 +54,14 @@
     .brand .dot { color: var(--primary); }
     
     /* ===== Main Layout ===== */
-    main { max-width: 720px; margin: 42px auto; padding: 0 20px 60px; text-align: center; }
+    main { 
+        max-width: 720px; 
+        margin: 42px auto; 
+        padding: 0 20px 60px; 
+        text-align: center; 
+        flex: 1; /* 新增：讓 Main 撐開高度，Footer 就會被推到底部 */
+        width: 100%;
+    }
     h1 { font-size: clamp(24px, 4vw, 32px); margin-bottom: 24px; }
 
     /* ===== QR Code Card ===== */
@@ -61,16 +71,13 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 32px;
-      display: inline-block; /* 讓卡片包覆內容 */
+      display: inline-block;
       margin-bottom: 24px;
     }
     .qr-image {
-      max-width: 100%; /* 確保在小螢幕上不破版 */
+      max-width: 100%;
       height: auto;
       border-radius: 8px;
-      /* 選擇性：如果你的 QR Code 是黑白的，可以加一點金色邊框或光暈 */
-      /* border: 2px solid var(--primary); */
-      /* box-shadow: 0 0 15px rgba(250, 204, 21, 0.2); */
     }
     .note { color: var(--muted); margin-top: 16px; display: block; }
     
@@ -85,8 +92,14 @@
         border-color: var(--primary); color: var(--primary); background: rgba(250, 204, 21, 0.05);
     }
 
-    /* ===== Footer (沿用) ===== */
-    footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); color: var(--muted); }
+    /* ===== Footer ===== */
+    footer { 
+        text-align: center; 
+        padding: 24px; 
+        border-top: 1px solid var(--border); 
+        color: var(--muted); 
+        flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
@@ -96,11 +109,11 @@
     </nav>
   </header>
 
-  main>
+  <main>
     <h1>Scan to Add Me on LINE</h1>
     
     <div class="qr-card">
-      <img src="assets/images/line-qrcode.jpg" alt="Shawn Huang's LINE QR Code" class="qr-image" width="250" height="250">
+      <img src="./assets/images/line-qrcode.jpg" alt="Shawn Huang's LINE QR Code" class="qr-image" width="250" height="250">
       <small class="note">Open LINE > Add Friends > QR Code</small>
     </div>
     
