@@ -182,20 +182,16 @@
         <h2>Business_API</h2>
         <p class="meta">FastAPI · MySQL · SQLAlchemy · Image Streaming</p>
         <p class="desc">
-          專為 AI 推薦系統設計的輕量化後端。前端可透過 HTTP GET 根據 PID 查詢店家詳情（如營業時間、設施與照片清單），<strong>有效減少 RAG 生成式模型的 Token 消耗</strong>，提升系統回應效率。
+          A lightweight backend service tailored for AI-driven recommendation systems. By fetching detailed merchant metadata (hours, amenities, photos) via HTTP GET with PID, it <strong>significantly reduces Token consumption</strong> in RAG generative models and enhances system responsiveness.
         </p>
         <div class="badges">
           <span class="badge">Token Optimization</span>
           <span class="badge">Hybrid RAG Architecture</span>
           <span class="badge">Security Hardened</span>
         </div>
-        <ul style="font-size: 0.85rem; color: #666; margin: 10px 0; padding-left: 18px; line-height: 1.4;">
-          <li><strong>非同步校驗：</strong>支援 <code>sid</code> 參數，防止前端非同步請求導致的資料錯置。</li>
-          <li><strong>安全串流：</strong>內建 Directory Traversal 防護，安全地提供店家實體照片。</li>
-          <li><strong>效能優化：</strong>使用 <code>joinedload</code> 預載技術，優化資料庫關聯查詢。</li>
-        </ul>
+
         <div class="actions">
-          <a class="btn primary" href="https://github.com/shawnhuang125/Search_API" target="_blank" rel="noreferrer">View Code →</a>
+          <a class="btn primary" href="https://github.com/shawnhuang125/business_api/releases" target="_blank" rel="noreferrer">View Code →</a>
         </div>
       </article>
 
