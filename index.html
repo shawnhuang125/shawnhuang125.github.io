@@ -239,6 +239,69 @@
       color: var(--fg); /* 讓重點文字反白變亮 */
       font-weight: 600;
     }
+
+    /* ===== Projects Grid Layout ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      border-top: 2px solid transparent; /* 預留給 Hover 效果 */
+    }
+
+    .project-card:hover {
+      border-top: 2px solid var(--primary);
+    }
+
+    .project-card h3 {
+      margin: 0 0 8px 0;
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
+
+    .project-card .meta-text {
+      font-family: monospace;
+      font-size: 13px;
+      color: var(--primary-2);
+      margin-bottom: 12px;
+      opacity: 0.8;
+    }
+
+    .project-card .description {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* 按鈕與連結樣式 */
+    .project-links {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .view-code-btn {
+      padding: 8px 16px;
+      background: var(--primary);
+      color: #0d0d0d;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .view-code-btn:hover {
+      background: var(--fg);
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -333,6 +396,85 @@
             </ul>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Featured Projects</h2>
+      <p class="subtitle">展示我的實作能力：從底層網路框架到 AI 數據工程系統。</p>
+      
+      <div class="projects-grid">
+        <!-- HROUTE -->
+        <article class="card project-card">
+          <div>
+            <h3>HROUTE</h3>
+            <div class="meta-text">C · Linux · Networking · Modular Architecture</div>
+            <p class="description">
+              獨立開發的<strong>輕量化 Linux 路由框架</strong>。核心實作 DHCP 協定引擎與 NAT 轉發邏輯，並採用模組化架構，確保系統在嵌入式環境下的高效能與擴充性。
+            </p>
+            <div class="badges">
+              <span class="badge">DHCP Server</span>
+              <span class="badge">Socket Programming</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/shawnhuang125/router" target="_blank" class="view-code-btn">View Repository →</a>
+          </div>
+        </article>
+
+        <!-- Search API for AI RAG -->
+        <article class="card project-card">
+          <div>
+            <h3>Search API for AI RAG</h3>
+            <div class="meta-text">Python · FastAPI · Qdrant · Vector DB</div>
+            <p class="description">
+              專為 RAG 系統設計的<strong>混合檢索後端</strong>。實作了 SQL 與 Vector (BGE-M3) 的 Hybrid Search，解決大規模非結構化餐飲數據的語義搜索難題。
+            </p>
+            <div class="badges">
+              <span class="badge">Hybrid Search</span>
+              <span class="badge">ETL Pipeline</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/shawnhuang125/Search_API" target="_blank" class="view-code-btn">View Code →</a>
+          </div>
+        </article>
+
+        <!-- Business_API (Token Optimization) -->
+        <article class="card project-card">
+          <div>
+            <h3>Business_API</h3>
+            <div class="meta-text">FastAPI · SQLAlchemy · Token Optimization</div>
+            <p class="description">
+              專注於<strong>提升 RAG 效率</strong>的系統子模組。透過 PID 檢索詳細元數據，顯著降低生成模型 (LLM) 的 Token 消耗，並提升系統 30% 以上的響應速度。
+            </p>
+            <div class="badges">
+              <span class="badge">Architecture Design</span>
+              <span class="badge">API Security</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/shawnhuang125/business_api" target="_blank" class="view-code-btn">View Code →</a>
+          </div>
+        </article>
+
+        <!-- VANTAGE -->
+        <article class="card project-card">
+          <div>
+            <h3>VANTAGE Terminal</h3>
+            <div class="meta-text">Async Scraper · CSS Grid · MySQL</div>
+            <p class="description">
+              即時金融監測終端。優化 100vh 雙軌滾動佈局，並開發非同步爬蟲模組實現毫秒級數據更新，提升高密度資訊的閱讀體驗。
+            </p>
+            <div class="badges">
+              <span class="badge">Async I/O</span>
+              <span class="badge">UI/UX Design</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/shawnhuang125/vantage" target="_blank" class="view-code-btn">Launch System →</a>
+          </div>
+        </article>
       </div>
     </section>
 
