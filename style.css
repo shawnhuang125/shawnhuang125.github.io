@@ -119,5 +119,26 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 
 /* ===== Social / Contact (修復圖標顏色) ===== */
 .social { display: flex; justify-content: center; gap: 28px; margin-top: 40px; }
+
+/* 經歷細節樣式補回 */
+.detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+.detail-list li {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+.detail-list strong {
+  color: var(--fg);
+}
+
+/* 確保分頁容器在 JS 載入前不顯示多餘卡片 */
+#projects-grid-container .project-card {
+  display: none;
+}
 .social a { font-size: 30px; color: var(--muted); transition: all 0.25s ease; }
 .social a:hover { color: var(--primary); transform: scale(1.2); }
