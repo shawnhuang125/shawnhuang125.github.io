@@ -14,19 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateProjectDisplay() {
         const start = currentPage * itemsPerPage;
         const end = start + itemsPerPage;
-
+    
         projectItems.forEach((item, index) => {
             if (index >= start && index < end) {
-                // ✅ 強制顯示並確保透明度
+                // ✅ 先清除舊動畫
+                item.style.animation = 'none';
+                // ✅ 強制觸發重繪 (Reflow)
+                item.offsetHeight; 
+                
+                // ✅ 重新設定樣式
                 item.style.setProperty('display', 'flex', 'important');
-                item.style.opacity = '1'; 
+                item.style.opacity = '1';
                 item.style.animation = 'fadeIn 0.5s ease forwards';
             } else {
                 item.style.setProperty('display', 'none', 'important');
                 item.style.opacity = '0';
             }
         });
-
+    
         if (pageDisplay) {
             pageDisplay.textContent = `${currentPage + 1} / ${totalPages}`;
         }
