@@ -87,57 +87,147 @@
       <p class="subtitle">點擊下方按鈕查看詳細程式碼或即時演示。</p>
 
       <div id="projects-grid-container" class="projects-grid">
-        <!-- HROUTE -->
-        <article class="card project-card">
-          <div>
-            <h3>HROUTE</h3>
-            <div class="meta-text">C · Linux · Networking</div>
-            <p class="description">獨立開發的輕量化 Linux 路由框架。實作 DHCP 協定引擎與 NAT 轉發邏輯，確保嵌入式環境下的高效能運作。</p>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/shawnhuang125/router" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a>
-            <a href="#" class="btn btn-outline"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-          </div>
-        </article>
-
-        <!-- Search API -->
-        <article class="card project-card">
-          <div>
-            <h3>Search API for AI RAG</h3>
-            <div class="meta-text">Python · FastAPI · Qdrant</div>
-            <p class="description">專為 RAG 系統設計的混合檢索後端。實作 SQL 與 Vector Hybrid Search，解決大規模語義搜索難題。</p>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/shawnhuang125/Search_API" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a>
-            <a href="#" class="btn btn-outline"><i class="fas fa-external-link-alt"></i> API Doc</a>
-          </div>
-        </article>
-
-        <!-- DBMS -->
-        <article class="card project-card">
-          <div>
-            <h3>Custom DBMS Console</h3>
-            <div class="meta-text">FastAPI · AJAX · MySQL · Qdrant</div>
-            <p class="description">針對異質資料庫開發的整合管理介面。實現無需重新整理即可同步操作 MySQL 與 Qdrant 向量資料庫。</p>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/shawnhuang125/map-api-application" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a>
-            <a href="#" class="btn btn-outline"><i class="fas fa-desktop"></i> Console</a>
-          </div>
-        </article>
-
-        <!-- VANTAGE -->
-        <article class="card project-card">
-          <div>
-            <h3>VANTAGE Terminal</h3>
-            <div class="meta-text">Async Scraper · CSS Grid</div>
-            <p class="description">即時金融監測終端。優化 100vh 雙軌滾動佈局，並開發非同步爬蟲模組實現毫秒級數據更新。</p>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/shawnhuang125/vantage" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a>
-            <a href="https://shawnhuang125.github.io/vantage/" target="_blank" class="btn btn-outline"><i class="fas fa-play"></i> Launch</a>
-          </div>
-        </article>
+        <!-- 第一頁：核心技術與數據工程 -->
+          <article class="card project-card">
+            <div>
+              <h3>HROUTE</h3>
+              <div class="meta-text">C · Linux · Networking</div>
+              <p class="description">獨立開發的輕量化 Linux 路由框架。實作 <strong>DHCP 協定引擎</strong>與 NAT 轉發邏輯，確保嵌入式環境下的高效率網路傳輸。</p>
+              <div class="badges">
+                <span class="badge">Modular Architecture</span>
+                <span class="badge">System-Level C</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/shawnhuang125/router" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="btn btn-outline"><i class="fas fa-network-wired"></i> Repository</a>
+            </div>
+          </article>
+          
+          <article class="card project-card">
+            <div>
+              <h3>Search API for AI RAG</h3>
+              <div class="meta-text">Python · FastAPI · Qdrant · MySQL</div>
+              <p class="description">專為 RAG 系統設計的<strong>混合檢索後端</strong>。整合 SQL 預篩選與 Vector 語義搜尋，優化大規模餐飲數據的檢索精準度。</p>
+              <div class="badges">
+                <span class="badge">Hybrid Search</span>
+                <span class="badge">RAG Architecture</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/shawnhuang125/Search_API/releases" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="btn btn-outline"><i class="fas fa-database"></i> API Doc</a>
+            </div>
+          </article>
+          
+          <article class="card project-card">
+            <div>
+              <h3>VANTAGE Terminal</h3>
+              <div class="meta-text">FastAPI · Async Scraper · CSS Grid</div>
+              <p class="description">專業級即時金融監測終端。採用 <strong>100vh 雙軌滾動佈局</strong>與非同步爬蟲，實現毫秒級數據更新與流暢 UI 體驗。</p>
+              <div class="badges">
+                <span class="badge">Async Scraper</span>
+                <span class="badge">100vh Layout</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/shawnhuang125/vantage/releases" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a>
+              <a href="https://shawnhuang125.github.io/vantage/" target="_blank" class="btn btn-outline"><i class="fas fa-play"></i> Launch</a>
+            </div>
+          </article>
+          
+          <article class="card project-card">
+            <div>
+              <h3>Custom DBMS Console</h3>
+              <div class="meta-text">FastAPI · AJAX · MySQL · Qdrant</div>
+              <p class="description">針對異質資料庫開發的整合管理介面。實現無需重新整理即可同步操作 MySQL 與向量資料庫，大幅提升開發效率。</p>
+              <div class="badges">
+                <span class="badge">Data Engineering</span>
+                <span class="badge">Management UI</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/shawnhuang125/map-api-application/releases" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="btn btn-outline"><i class="fas fa-terminal"></i> Console</a>
+            </div>
+          </article>
+          
+          <!-- 第二頁：後端服務與數據工具 -->
+          <article class="card project-card">
+            <div>
+              <h3>Business_API</h3>
+              <div class="meta-text">FastAPI · SQLAlchemy · Token Opt.</div>
+              <p class="description">輕量化後端服務，透過 PID 檢索詳細元數據。<strong>顯著降低 RAG 模型 Token 消耗</strong>，並提升整體系統響應速度。</p>
+              <div class="badges">
+                <span class="badge">Efficiency</span>
+                <span class="badge">Performance</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/shawnhuang125/business_api/releases" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </article>
+          
+          <article class="card project-card">
+            <div>
+              <h3>Google Map ETL System</h3>
+              <div class="meta-text">Python · Flask · Google APIs</div>
+              <p class="description">自動化蒐集與清洗非結構化餐飲數據。建立 ETL 標準化流程，作為 RAG 模型對話式推薦的知識庫基礎。</p>
+              <div class="badges">
+                <span class="badge">ETL Pipeline</span>
+                <span class="badge">Data Cleaning</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/shawnhuang125/Graduation-Project" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </article>
+          
+          <article class="card project-card">
+            <div>
+              <h3>Review Labeling Tool</h3>
+              <div class="meta-text">Python · tkinter · Data Annotation</div>
+              <p class="description">高效數據標註 GUI 應用。支援同店評論批量更新與自動填充，針對大規模評論進行精準語義標註。</p>
+              <div class="badges">
+                <span class="badge">Desktop UI</span>
+                <span class="badge">Efficiency Tool</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/shawnhuang125/Data_Labeling_Assistant/releases" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </article>
+          
+          <article class="card project-card">
+            <div>
+              <h3>Multi-Platform Media Downloader</h3>
+              <div class="meta-text">Python · FFmpeg · yt_dlp</div>
+              <p class="description">跨平台影音轉換工具。支援 X.com 等平台視頻抓取與高音質格式轉換，內建實時進度顯示與目錄管理。</p>
+              <div class="badges">
+                <span class="badge">FFmpeg</span>
+                <span class="badge">Tooling</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/shawnhuang125/x.com_converter/releases" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </article>
+          
+          <!-- 第三頁：IoT 與其他專案 -->
+          <article class="card project-card">
+            <div>
+              <h3>IoT Door Monitor</h3>
+              <div class="meta-text">C · ESP32 · Flask · Telegram Bot</div>
+              <p class="description">基於 ESP32 的門磁監測系統。感測狀態變更後透過 Flask API 即時推播通知至 Telegram Bot，落實低功耗物聯網應用。</p>
+              <div class="badges">
+                <span class="badge">IoT</span>
+                <span class="badge">ESP32</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/shawnhuang125/Magnetic_Door_Monitoring_System" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </article>
       </div>
 
       <div class="pagination-controls">
