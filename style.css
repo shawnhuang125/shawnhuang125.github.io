@@ -84,11 +84,10 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 }
 
 .project-card {
-  display: none; /* 預設隱藏，交給 JS 啟動 */
+  display: none; /* 輕量化隱藏 */
   opacity: 0;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
 }
 
 #projects-grid-container .project-card:hover { border-top-color: var(--primary); }
@@ -98,9 +97,8 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(100%); opacity: 1; transform: translateY(0); }
 }
-
 /* ===== Pagination Controls ===== */
 .pagination-controls {
   display: flex;
