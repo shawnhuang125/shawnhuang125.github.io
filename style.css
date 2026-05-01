@@ -217,7 +217,24 @@
       min-height: 400px; /* 建議給個最小高度，切換時頁面比較不會跳動 */
     }
 
-    /* 分頁控制列樣式 */
+    #projects-grid-container .project-card {
+      display: none; /* 這是解決「全部都在第一頁」的關鍵 */
+      opacity: 0;
+    }
+    
+    /* 2. 定義淡入動畫 */
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+    
+    /* 3. 分頁控制列樣式 (確保按鈕漂亮且好按) */
     .pagination-controls {
       display: flex;
       align-items: center;
@@ -231,25 +248,30 @@
       background: var(--card);
       border: 1px solid var(--border);
       color: var(--primary);
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.25s ease;
+      font-size: 1.2rem;
     }
     
     .pag-btn:hover {
       background: var(--primary);
       color: #0d0d0d;
       transform: scale(1.1);
+      border-color: transparent;
     }
     
     #page-number {
       font-family: monospace;
       font-weight: bold;
+      font-size: 1.1rem;
+      min-width: 60px;
+      text-align: center;
     }
 
     .project-card {
