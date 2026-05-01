@@ -79,15 +79,15 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 .projects-grid {
   display: grid;
   /* 這裡的數值必須與 .project-card 的寬度一致 */
-  grid-template-columns: repeat(auto-fill, 380px); 
+  grid-template-columns: repeat(auto-fill, 430px); 
   gap: 24px;
   width: 100%;
   justify-content: center; 
 }
 
 .project-card {
-  width: 380px !important; /* 明確鎖定卡片寬度 */
-  height: 200px !important; 
+  width: 430px !important; /* 明確鎖定卡片寬度 */
+  height: 240px !important; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
