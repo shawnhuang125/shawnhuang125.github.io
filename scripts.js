@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. 自動更新年份
+    // 1. 更新年份
     const yearSpan = document.getElementById('year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // 2. 分頁核心邏輯
+    // 2. 分頁參數
     const itemsPerPage = 4;
     let currentPage = 0;
     const projectItems = document.querySelectorAll('#projects-grid-container .project-card');
@@ -16,19 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         projectItems.forEach((item, index) => {
             if (index >= start && index < end) {
+                // 強制覆蓋 CSS 的 display: none
                 item.style.setProperty('display', 'flex', 'important');
                 item.style.animation = 'fadeIn 0.5s ease forwards';
             } else {
                 item.style.setProperty('display', 'none', 'important');
-                item.style.animation = 'none';
             }
         });
 
-        if (pageDisplay) {
-            pageDisplay.textContent = `${currentPage + 1} / ${totalPages}`;
-        }
+        if (pageDisplay) pageDisplay.textContent = `${currentPage + 1} / ${totalPages}`;
     }
 
+    // 將函數暴露給 onclick
     window.changePage = function(direction) {
         currentPage += direction;
         if (currentPage < 0) currentPage = totalPages - 1;
@@ -37,7 +36,5 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('projects-heading').scrollIntoView({ behavior: 'smooth' });
     };
 
-    if (projectItems.length > 0) {
-        updateProjectDisplay();
-    }
+    if (projectItems.length > 0) updateProjectDisplay();
 });
