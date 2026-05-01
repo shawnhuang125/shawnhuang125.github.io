@@ -75,25 +75,22 @@ h2 { color: var(--primary); margin-bottom: 15px; }
   margin-bottom: 6px; padding: 2px 8px; background: rgba(250, 204, 21, 0.1); border-radius: 4px;
 }
 
-/* ===== Projects Grid (精確對齊版本) ===== */
+/* ===== Projects Grid (最終對齊修正) ===== */
 .projects-grid {
   display: grid;
-  /* 關鍵：設定為 488px，這樣兩張卡片加 24px 間距剛好等於 1000px */
-  grid-template-columns: repeat(auto-fill, 488px); 
+  /* 關鍵：使用 1fr 讓卡片按比例撐滿容器空間 */
+  /* minmax(0, 1fr) 確保卡片不會因為內容過長而撐破佈局 */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
   gap: 24px;
   
-  /* 確保容器撐滿 main 的可用寬度 */
+  /* 確保容器寬度撐滿 main 的 1040px (扣除 padding 後的空間) */
   width: 100%; 
-  max-width: 1000px; /* 對應 main 的可用空間 */
   margin: 0 auto;
-  
-  /* 確保靠左對齊，與上方 Experience 區塊起始點一致 */
-  justify-content: flex-start; 
 }
 
 .project-card {
-  /* 固定寬度：488px */
-  width: 488px !important; 
+  /* 移除固定寬度 (不要用 488px)，寬度由 Grid 自動分配 */
+  width: 100% !important; 
   height: 280px !important;  
   
   display: flex;
@@ -104,8 +101,16 @@ h2 { color: var(--primary); margin-bottom: 15px; }
   border-radius: var(--radius);
   padding: 24px;
   transition: all 0.3s ease;
-  box-sizing: border-box; /* 確保 padding 不會撐開寬度 */
+  box-sizing: border-box; /* 確保 padding 包含在寬度內 */
 }
+
+/* 為了行動裝置優化：當螢幕太小時改為單欄顯示 */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .project-card:hover { 
   border-top-color: var(--primary); 
