@@ -214,7 +214,44 @@
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 24px;
       margin-top: 20px;
+      min-height: 400px; /* 建議給個最小高度，切換時頁面比較不會跳動 */
     }
+
+    /* 分頁控制列樣式 */
+    .pagination-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 32px;
+      color: var(--muted);
+    }
+    
+    .pag-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+    
+    .pag-btn:hover {
+      background: var(--primary);
+      color: #0d0d0d;
+      transform: scale(1.1);
+    }
+    
+    #page-number {
+      font-family: monospace;
+      font-weight: bold;
+    }
+
     .project-card {
       display: flex;
       flex-direction: column;
