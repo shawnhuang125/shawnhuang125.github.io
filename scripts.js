@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemsPerPage = 4;
     let currentPage = 0;
     
-    // ✅ 這裡改掉：直接抓 .project-card，不要管前面的 ID
+    // ✅ 這裡改掉：直接抓 .project-card，避開 ID 權重問題
     const projectItems = document.querySelectorAll('.project-card');
     const pageDisplay = document.getElementById('page-number');
     const totalPages = Math.ceil(projectItems.length / itemsPerPage);
@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         projectItems.forEach((item, index) => {
             if (index >= start && index < end) {
-                // ✅ 強制執行重繪與顯示
+                // ✅ 重設動畫並強制顯示
                 item.style.animation = 'none';
-                item.offsetHeight; 
+                item.offsetHeight; // 觸發重繪
                 item.style.setProperty('display', 'flex', 'important');
                 item.style.opacity = '1';
                 item.style.animation = 'fadeIn 0.5s ease forwards';
@@ -34,17 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // 掛載翻頁函數
     window.changePage = function(direction) {
         currentPage += direction;
         if (currentPage < 0) currentPage = totalPages - 1;
         if (currentPage >= totalPages) currentPage = 0;
         updateProjectDisplay();
-        
-        const target = document.getElementById('projects-heading');
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('projects-heading').scrollIntoView({ behavior: 'smooth' });
     };
 
-    if (projectItems.length > 0) {
-        updateProjectDisplay();
-    }
+    if (projectItems.length > 0) updateProjectDisplay();
 });
