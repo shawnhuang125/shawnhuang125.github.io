@@ -89,7 +89,7 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 
 .project-card {
   width: 380px; /* 明確鎖定卡片寬度 */
-  height: 300px; 
+  height: 200px; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
