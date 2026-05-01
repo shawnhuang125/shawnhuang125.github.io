@@ -166,3 +166,22 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 .detail-list strong {
   color: var(--fg);
 }
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid var(--border);
+  margin-top: 60px;
+}
+
+.footer-text {
+  color: var(--muted);
+  font-size: 0.85rem; /* 修正原本拼錯的 ft-size */
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+#year {
+  font-weight: 600;
+  color: var(--fg);
+}
