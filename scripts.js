@@ -14,12 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateProjectDisplay() {
         const start = currentPage * itemsPerPage;
         const end = start + itemsPerPage;
-
+    
         projectItems.forEach((item, index) => {
             if (index >= start && index < end) {
-                // ✅ 重設動畫並強制顯示
+                // ✅ 強制重設動畫狀態
                 item.style.animation = 'none';
-                item.offsetHeight; // 觸發重繪
+                item.offsetHeight; // 觸發重繪 (Reflow)
+                
+                // ✅ 使用 setProperty 加上 important 確保絕對顯示
                 item.style.setProperty('display', 'flex', 'important');
                 item.style.opacity = '1';
                 item.style.animation = 'fadeIn 0.5s ease forwards';
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.style.opacity = '0';
             }
         });
-
+    
         if (pageDisplay) {
             pageDisplay.textContent = `${currentPage + 1} / ${totalPages}`;
         }
