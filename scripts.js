@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearSpan = document.getElementById('year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // 2. 分頁核心邏輯
+    // 2. 分頁變數設定
     const itemsPerPage = 4;
     let currentPage = 0;
     const projectItems = document.querySelectorAll('#projects-grid-container .project-card');
@@ -16,11 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         projectItems.forEach((item, index) => {
             if (index >= start && index < end) {
-                // 使用 setProperty 確保絕對顯示並套用動畫
+                // 使用 setProperty 並加上 !important 確保絕對覆蓋 CSS 的 display: none
                 item.style.setProperty('display', 'flex', 'important');
+                item.style.opacity = '1';
                 item.style.animation = 'fadeIn 0.5s ease forwards';
             } else {
                 item.style.setProperty('display', 'none', 'important');
+                item.style.opacity = '0';
                 item.style.animation = 'none';
             }
         });
@@ -30,21 +32,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 將函數掛載到 window 全域，確保 HTML onclick 可以讀取
+    // 3. 全域切換函數
     window.changePage = function(direction) {
         currentPage += direction;
         
-        // 循環頁數
+        // 循環頁數邏輯
         if (currentPage < 0) currentPage = totalPages - 1;
         if (currentPage >= totalPages) currentPage = 0;
         
         updateProjectDisplay();
         
-        // 切換後自動滾動到專案區塊頂部
-        document.getElementById('projects-heading').scrollIntoView({ behavior: 'smooth' });
+        // 切換後平滑捲動回專案區塊頂部
+        const projectsHeading = document.getElementById('projects-heading');
+        if (projectsHeading) {
+            projectsHeading.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
-    // 初始化顯示
+    // 4. 執行初始化
     if (projectItems.length > 0) {
         updateProjectDisplay();
     }
