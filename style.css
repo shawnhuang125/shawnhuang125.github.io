@@ -164,12 +164,41 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 }
 .badge:hover { background: var(--primary); color: #0d0d0d; border-color: transparent; transform: translateY(-2px); }
 
-.project-links { margin-top: auto; display: flex; gap: 12px; }
-.btn { padding: 8px 16px; border-radius: 10px; font-weight: 700; font-size: 14px; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
-.btn-primary { background: var(--primary); color: #0d0d0d; }
+.project-links {
+  margin-top: auto; /* 將按鈕推至卡片底部 */
+  display: flex;
+  gap: 10px;       /* 按鈕之間的間距 */
+  flex-wrap: wrap; /* 避免在小螢幕時按鈕擠在一起 */
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap; /* 防止按鈕文字換行 */
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #0d0d0d;
+}
 .btn-primary:hover { background: var(--fg); transform: scale(1.05); }
-.btn-outline { border: 1px solid var(--border); color: var(--fg); }
-.btn-outline:hover { border-color: var(--primary); color: var(--primary); transform: scale(1.05); }
+.btn-outline {
+  border: 1px solid var(--border);
+  color: var(--fg);
+  background: rgba(255, 255, 255, 0.05);
+}
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(250, 204, 21, 0.08);
+  transform: translateY(-2px);
+}
 
 /* ===== Social / Contact (修復圖標顏色) ===== */
 .social {
