@@ -130,7 +130,23 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 .btn-outline:hover { border-color: var(--primary); color: var(--primary); transform: scale(1.05); }
 
 /* ===== Social / Contact (修復圖標顏色) ===== */
-.social { display: flex; justify-content: center; gap: 28px; margin-top: 40px; }
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 28px; /* 確保圖標之間有足夠間距 */
+  margin-top: 40px;
+}
+
+.social a {
+  font-size: 30px; /* 控制圖標大小 */
+  color: var(--muted);
+  transition: all 0.25s ease;
+}
+
+.social a:hover {
+  color: var(--primary); /* 懸浮時變金黃色 */
+  transform: scale(1.2); /* 懸浮時輕微放大 */
+}
 
 /* 經歷細節樣式補回 */
 .detail-list {
@@ -152,5 +168,4 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 #projects-grid-container .project-card {
   display: none;
 }
-.social a { font-size: 30px; color: var(--muted); transition: all 0.25s ease; }
-.social a:hover { color: var(--primary); transform: scale(1.2); }
+
