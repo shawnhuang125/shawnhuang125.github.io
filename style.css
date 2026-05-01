@@ -95,10 +95,18 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 .meta-text { font-family: monospace; font-size: 13px; color: var(--primary-2); margin-bottom: 12px; opacity: 0.8; }
 .description { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
 
+/* 修正後的動畫定義 */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(100%); opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
+
 /* ===== Pagination Controls ===== */
 .pagination-controls {
   display: flex;
