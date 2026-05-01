@@ -78,14 +78,18 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 /* ===== Projects Grid (修復顯示問題) ===== */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+  /* 關鍵修正：將 1fr 改為固定寬度或 auto */
+  /* repeat(auto-fill, 320px) 會讓卡片固定在 320px，不會因為數量少而變寬 */
+  grid-template-columns: repeat(auto-fill, 320px); 
   gap: 24px;
-  width: 100%; /* 這行就確保了它會撐滿 main 的 1040px */
+  width: 100%;
+  /* 如果你希望卡片在只有一個時也能置中，可以加下面這行 */
+  justify-content: center; 
 }
 
 .project-card {
-  /* 刪除原本可能有的 width: 100% */
-  height: 400px; /* 如果你希望卡片高度固定（像截圖那樣長長的），可以設定固定值 */
+  width: 320px; /* 明確鎖定卡片寬度 */
+  height: 400px; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
