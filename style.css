@@ -91,7 +91,7 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 .project-card {
   /* 移除固定寬度 (不要用 488px)，寬度由 Grid 自動分配 */
   width: 100% !important; 
-  height: 280px !important;  
+  height: 240px !important;  
   
   display: flex;
   flex-direction: column;
