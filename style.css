@@ -78,11 +78,9 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 /* ===== Projects Grid (修復顯示問題) ===== */
 .projects-grid {
   display: grid;
-  /* 關鍵：設定 minmax 的最小值，例如 300px，
-     這樣卡片就不會小於這個寬度，多出來的就會自動換行 */
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
   gap: 24px;
-  width: 100%;
+  width: 100%; /* 這行就確保了它會撐滿 main 的 1040px */
 }
 
 .project-card {
