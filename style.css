@@ -88,8 +88,8 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 }
 
 .project-card {
-  width: 320px; /* 明確鎖定卡片寬度 */
-  height: 400px; 
+  width: 250px; /* 明確鎖定卡片寬度 */
+  height: 450px; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
