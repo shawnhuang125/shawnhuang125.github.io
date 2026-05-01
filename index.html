@@ -85,7 +85,8 @@
     <section id="projects-heading">
       <h2>Featured Projects</h2>
       <p class="subtitle">點擊下方按鈕查看詳細程式碼或即時演示。</p>
-      <div class="projects-grid">
+
+      <div id="projects-grid-container" class="projects-grid">
         <!-- HROUTE -->
         <article class="card project-card">
           <div>
@@ -138,6 +139,14 @@
           </div>
         </article>
       </div>
+
+      <div class="pagination-controls">
+        <button class="pag-btn" onclick="changePage(-1)"><i class="fas fa-chevron-left"></i></button>
+        <span id="page-number">1 / 2</span>
+        <button class="pag-btn" onclick="changePage(1)"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      
     </section>
 
     <section aria-labelledby="cert-heading">
