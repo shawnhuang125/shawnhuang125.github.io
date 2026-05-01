@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shawn Huang | Profile</title>
+  <title>Shawn Huang | Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -11,12 +11,16 @@
   <header>
     <nav>
       <a class="brand" href="index.html">Shawn Huang<span class="dot">.</span> Portfolio</a>
-      <div class="nav-links"><a href="#projects-heading">Projects</a></div>
+      <div class="nav-links">
+        <a href="#exp-heading">Experience</a>
+        <a href="#projects-heading">Projects</a>
+        <a href="#contact-heading">Contact</a>
+      </div>
     </nav>
   </header>
 
   <main>
-    <section>
+    <section id="profile-heading">
       <h1>Hello, I am Shawn Huang.</h1>
       <p class="subtitle">I build Data Engineering and Web applications.</p>
       <div class="card">
@@ -28,15 +32,6 @@
       </div>
     </section>
 
-    <section>
-      <h2>Education</h2>
-      <div class="card">
-        <ul style="margin:0; padding-left:18px;">
-          <li><strong>崑山科大-資工系-學士</strong></li>
-        </ul>
-      </div>
-    </section>
-
     <section id="exp-heading">
       <h2>Experience</h2>
       <div class="card">
@@ -44,33 +39,29 @@
           <li>
             <strong>2025-01 - Present</strong>
             <h3>專題組長 & 資料工程開發 | AI 美食聊天機器人</h3>
-            <div class="badges" style="margin: 8px 0 12px 0;">
-              <span class="badge">Project Management</span>
-              <span class="badge">GCP API</span>
-              <span class="badge">RAG</span>
-            </div>
-            <ul class="detail-list" style="padding-left: 0; color: var(--muted); font-size: 14px; list-style: none;">
-              <li style="margin-bottom: 8px;"><strong>• 團隊領導 (Project Management)：</strong>主導技術選型與架構設計，使用 Google Sheets 進行專案時程與進度追蹤。</li>
-              <li style="margin-bottom: 8px;"><strong>• 資料管線建置 (Data Pipeline)：</strong>利用 GCP API 自動化蒐集非結構化數據，建立 ETL 流程。</li>
-              <li style="margin-bottom: 8px;"><strong>• 資料庫管理系統開發 (Custom DBMS)：</strong>獨立開發資料庫管理模組，有效管理 5,000+ 筆資料。</li>
-              <li style="margin-bottom: 8px;"><strong>• 技術優化：</strong>優化資料檢索演算法，大幅降低回應延遲。</li>
+            <div class="badges"><span class="badge">Project Management</span><span class="badge">GCP API</span><span class="badge">RAG</span></div>
+            <ul class="detail-list">
+              <li>▹ <strong>團隊領導 (Project Management)：</strong>主導技術選型與架構設計，使用 Google Sheets 進行專案時程與進度追蹤。</li>
+              <li>▹ <strong>資料管線建置 (Data Pipeline)：</strong>利用 GCP API 自動化蒐集數據，建立 ETL 流程。</li>
+              <li>▹ <strong>資料庫管理系統開發 (Custom DBMS)：</strong>獨立開發資料庫管理模組，有效管理 5,000+ 筆資料。</li>
+              <li>▹ <strong>技術優化：</strong>優化資料檢索演算法，大幅降低回應延遲。</li>
             </ul>
           </li>
           <li>
             <strong>2025-07 – 2025-08</strong>
             <h3>軟體測試工程師實習生 | 森淨科技</h3>
-            <ul class="detail-list" style="padding-left: 0; color: var(--muted); font-size: 14px; list-style: none; margin-top: 10px;">
-              <li style="margin-bottom: 8px;"><strong>• </strong>執行 Web 功能測試與 API 測試 (Postman)。</li>
-              <li style="margin-bottom: 8px;"><strong>• </strong>撰寫測試計畫與測試報告並協助開發團隊重現 Bug。</li>
+            <ul class="detail-list">
+              <li>▹ 執行 Web 功能測試與 API 測試 (Postman)。</li>
+              <li>▹ 撰寫測試計畫與測試報告並協助開發團隊重現 Bug。</li>
             </ul>
           </li>
           <li>
             <strong>2024-02 – 2025-02</strong>
             <h3>CTF 平台運維人員 | 資通安全實務人才培育計畫</h3>
-            <ul class="detail-list" style="padding-left: 0; color: var(--muted); font-size: 14px; list-style: none; margin-top: 10px;">
-              <li style="margin-bottom: 8px;"><strong>• 虛擬化管理 (XCP-ng)：</strong>管理機房 VM 叢集，執行資源調度與備份。</li>
-              <li style="margin-bottom: 8px;"><strong>• 基礎設施維運：</strong>負責機房伺服器硬體維護與網路設定。</li>
-              <li style="margin-bottom: 8px;"><strong>• 容器化部署：</strong>結合 Docker 技術快速部署資安競賽題目。</li>
+            <ul class="detail-list">
+              <li>▹ <strong>虛擬化管理 (XCP-ng)：</strong>管理機房 VM 叢集，執行資源調度與備份。</li>
+              <li>▹ <strong>基礎設施維運：</strong>負責機房伺服器硬體維護與網路設定。</li>
+              <li>▹ <strong>容器化部署：</strong>結合 Docker 技術快速部署資安競賽題目。</li>
             </ul>
           </li>
         </ul>
@@ -79,64 +70,62 @@
 
     <section id="projects-heading">
       <h2>Featured Projects</h2>
-      <p class="subtitle">點擊下方按鈕查看詳細程式碼或即時演示。</p>
-
+      <p class="subtitle">點擊按鈕查看詳細程式碼或即時演示。</p>
       <div id="projects-grid-container" class="projects-grid">
-        <!-- 第 1-4 個專案 -->
+        <!-- 專案 1-9 完整排列 -->
         <article class="card project-card">
           <h3>HROUTE</h3>
+          <div class="meta-text">C · Linux · Networking</div>
           <p class="description">獨立開發的輕量化 Linux 路由框架。實作 DHCP 引擎與 NAT 轉發。</p>
-          <div class="project-links"><a href="https://github.com/shawnhuang125/router" target="_blank" class="btn btn-primary">Code</a></div>
+          <div class="project-links"><a href="https://github.com/shawnhuang125/router" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a></div>
         </article>
-
         <article class="card project-card">
           <h3>Search API for AI RAG</h3>
+          <div class="meta-text">Python · FastAPI · Qdrant</div>
           <p class="description">混合檢索後端。整合 SQL 與 Vector 語義搜尋。</p>
-          <div class="project-links"><a href="https://github.com/shawnhuang125/Search_API/releases" target="_blank" class="btn btn-primary">Code</a></div>
+          <div class="project-links"><a href="https://github.com/shawnhuang125/Search_API" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a></div>
         </article>
-
         <article class="card project-card">
           <h3>VANTAGE Terminal</h3>
-          <p class="description">即時金融監測。100vh 雙軌滾動佈局與非同步爬蟲。</p>
-          <div class="project-links"><a href="https://github.com/shawnhuang125/vantage/releases" target="_blank" class="btn btn-primary">Code</a></div>
+          <div class="meta-text">FastAPI · Async Scraper</div>
+          <p class="description">即時金融監測終端。採用 100vh 雙軌滾動佈局。</p>
+          <div class="project-links"><a href="https://github.com/shawnhuang125/vantage" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a></div>
         </article>
-
         <article class="card project-card">
           <h3>Custom DBMS Console</h3>
-          <p class="description">異質資料庫整合介面，同步操作 MySQL 與 Qdrant。</p>
-          <div class="project-links"><a href="https://github.com/shawnhuang125/map-api-application/releases" target="_blank" class="btn btn-primary">Code</a></div>
+          <div class="meta-text">FastAPI · AJAX · MySQL</div>
+          <p class="description">整合管理介面，同步操作 MySQL 與 Qdrant。</p>
+          <div class="project-links"><a href="https://github.com/shawnhuang125/map-api-application" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a></div>
         </article>
-
-        <!-- 第 5-8 個專案 -->
         <article class="card project-card">
           <h3>Business_API</h3>
+          <div class="meta-text">FastAPI · SQLAlchemy</div>
           <p class="description">優化 RAG Token 消耗的後端服務。</p>
-          <div class="project-links"><a href="https://github.com/shawnhuang125/business_api/releases" target="_blank" class="btn btn-primary">Code</a></div>
+          <div class="project-links"><a href="https://github.com/shawnhuang125/business_api" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a></div>
         </article>
-
         <article class="card project-card">
-          <h3>Google Map ETL System</h3>
-          <p class="description">自動化蒐集與清洗非結構化餐飲數據。</p>
-          <div class="project-links"><a href="https://github.com/shawnhuang125/Graduation-Project" target="_blank" class="btn btn-primary">Code</a></div>
+          <h3>Google Map ETL</h3>
+          <div class="meta-text">Python · Google APIs</div>
+          <p class="description">自動化清洗非結構化餐飲數據。</p>
+          <div class="project-links"><a href="https://github.com/shawnhuang125/Graduation-Project" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a></div>
         </article>
-
         <article class="card project-card">
           <h3>Review Labeling Tool</h3>
+          <div class="meta-text">Python · tkinter</div>
           <p class="description">高效數據標註 GUI 應用，支援批量更新。</p>
-          <div class="project-links"><a href="https://github.com/shawnhuang125/Data_Labeling_Assistant/releases" target="_blank" class="btn btn-primary">Code</a></div>
+          <div class="project-links"><a href="https://github.com/shawnhuang125/Data_Labeling_Assistant" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a></div>
         </article>
-
         <article class="card project-card">
           <h3>Media Downloader</h3>
-          <p class="description">跨平台影音轉換工具，支援 FFmpeg 格式轉換。</p>
-          <div class="project-links"><a href="https://github.com/shawnhuang125/x.com_converter/releases" target="_blank" class="btn btn-primary">Code</a></div>
+          <div class="meta-text">Python · FFmpeg</div>
+          <p class="description">跨平台影音轉換工具，支援格式下載。</p>
+          <div class="project-links"><a href="https://github.com/shawnhuang125/x.com_converter" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a></div>
         </article>
-
-        <!-- 第 9 個專案 -->
         <article class="card project-card">
           <h3>IoT Door Monitor</h3>
-          <p class="description">ESP32 門磁監測系統，整合 Telegram 即時通知。</p>
-          <div class="project-links"><a href="https://github.com/shawnhuang125/Magnetic_Door_Monitoring_System" target="_blank" class="btn btn-primary">Code</a></div>
+          <div class="meta-text">C · ESP32 · Flask</div>
+          <p class="description">ESP32 門磁監測系統，整合 Telegram 通知。</p>
+          <div class="project-links"><a href="https://github.com/shawnhuang125/Magnetic_Door_Monitoring_System" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> Code</a></div>
         </article>
       </div>
 
@@ -147,7 +136,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="cert-heading">
       <h2>Certification</h2>
       <div class="card">
         <p><strong>2024-11:</strong> IPAS 資訊安全工程師-初級</p>
@@ -155,9 +144,9 @@
       </div>
     </section>
 
-    <section>
+    <section id="contact-heading">
       <h2>Contact Me</h2>
-      <div class="social">
+      <div class="card social">
         <a href="mailto:s0909799081@gmail.com"><i class="fas fa-envelope"></i></a>
         <a href="https://github.com/shawnhuang125" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/luchia-huang-a9ba88381/" target="_blank"><i class="fab fa-linkedin"></i></a>
