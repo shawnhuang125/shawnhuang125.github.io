@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemsPerPage = 4;
     let currentPage = 0;
     
-    // 抓取元素
+    // ✅ 這裡改掉：直接抓 .project-card，不要管前面的 ID
     const projectItems = document.querySelectorAll('.project-card');
     const pageDisplay = document.getElementById('page-number');
     const totalPages = Math.ceil(projectItems.length / itemsPerPage);
@@ -14,15 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateProjectDisplay() {
         const start = currentPage * itemsPerPage;
         const end = start + itemsPerPage;
-    
+
         projectItems.forEach((item, index) => {
             if (index >= start && index < end) {
-                // ✅ 先清除舊動畫
+                // ✅ 強制執行重繪與顯示
                 item.style.animation = 'none';
-                // ✅ 強制觸發重繪 (Reflow)
                 item.offsetHeight; 
-                
-                // ✅ 重新設定樣式
                 item.style.setProperty('display', 'flex', 'important');
                 item.style.opacity = '1';
                 item.style.animation = 'fadeIn 0.5s ease forwards';
@@ -31,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.style.opacity = '0';
             }
         });
-    
+
         if (pageDisplay) {
             pageDisplay.textContent = `${currentPage + 1} / ${totalPages}`;
         }
@@ -43,12 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentPage >= totalPages) currentPage = 0;
         updateProjectDisplay();
         
-        // 捲動回專案頂部
         const target = document.getElementById('projects-heading');
         if (target) target.scrollIntoView({ behavior: 'smooth' });
     };
 
-    // 初始化執行
     if (projectItems.length > 0) {
         updateProjectDisplay();
     }
