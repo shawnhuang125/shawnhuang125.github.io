@@ -45,77 +45,92 @@
       <div class="card">
         <ul class="timeline">
           <li>
-            <strong>2025-01 - Present</strong>
-            <h3>專題組長 & 系統架構開發 | AI 美食聊天機器人</h3>
-            <ul class="detail-list">
-              <li>▹ <strong>團隊領導與協調 (Leadership)：</strong>
-                <ul>
-                  <li>擔任專案組長領導 <strong>4</strong> 人開發團隊。</li>
-                  <li>透過 Google Sheets 進行開發規格文件制定格式與撰寫，專題開發會議管理，開發職責管理。</li>
-                  <li>透過 Github與Git 進行發行版本控管。</li>
-                </ul>
-              </li>
-              <li>▹ <strong>經費與空間爭取 (Acquisition)：</strong>
-                <ul>
-                  <li>代表團隊與指導教授商榷並成功獲取實驗室獨立研究空間。</li>
-                  <li>獲取兩張 <strong>RTX 4060 Ti 16GB</strong> 專業顯卡，共價值 <strong>32,000 $NT</strong> 之 AI 運算資源採購許可。</li>
-                </ul>
-              </li>
-              <li>▹ <strong>基礎設施與工作站運維 (Infrastructure)：</strong>
-                <ul>
-                  <li>規劃並佈署實驗室本地網路環境 (Local Network)。</li>
-                  <li>負責 <strong>AI 推論工作站</strong> 的硬體建置、軟體環境配置（如驅動與推論框架）與後續運維。</li>
-                  <li>建置並提供 <strong>資料庫工作站</strong>，負責 RDBMS 與向量資料庫之儲存環境優化與維護。</li>
-                </ul>
-              </li>
-              <li>▹ <strong>資料管線建置 (Data Pipeline)：</strong>
-                <ul>
-                  <li>利用 GCP API 實作自動化數據蒐集管線。</li>
-                  <li>自主開發自動化管線，完整涵蓋店家資料之 <strong>新增 (Create)</strong>、<strong>刪除 (Delete)</strong>、<strong>編輯 (Edit)</strong> 與 <strong>即時更新 (Update)</strong>。</li>
-                  <li>實作高效能資料清洗與格式標準化，確保資料庫內容之準確性與一致性。</li>
-                </ul>
-              </li>
-              <li>▹ <strong>內部平台與標記系統 (Internal Tooling & Platform)：</strong>
-                <ul>
-                  <li>獨立研發 <strong>客製化資料庫管理後台 (DBMS Console)</strong>，整合批次指派、進度儀表板、GIS 地圖視覺化與 RBAC 權限管理模組。</li>
-                  <li>開發專用 <strong>Python 桌面端標記輔助工具 (GUI App)</strong>，建立人機協同 (Human-in-the-loop) 標記流程，加速非結構化評論之語意屬性與特徵錄入。</li>
-                  <li>制定標準化資料驗收與品管機制，成功驅動團隊高效率完成數千筆高精準度 Ground Truth 資料集入庫。</li>
-                </ul>
-              </li>
-              <li>▹ <strong>混合式檢索與重排系統架構 (Hybrid Search & RAG System)：</strong>
-                <ul>
-                  <li><strong>二階段檢索管線架構 (Two-Stage Pipeline)：</strong>
-                    以 Python 3.12 (FastAPI/ASGI) 與 Docker-Compose 構建高效非同步微服務；設計「先過濾後檢索 (Filtering then Retrieval)」架構，以 <strong>aiomysql</strong> 進行 RDBMS 剛性條件預篩選（時空距離、營業狀態、設施），大幅收斂檢索空間並提升 99% 以上之計算吞吐量。
-                  </li>
-                  <li><strong>多通路語意召回與多維向量解耦 (Multi-path Vector Retrieval)：</strong>
-                    採用 <strong>BGE-M3</strong> 嵌入模型與 <strong>Qdrant</strong> 向量資料庫，將菜系、食物品類、口味與服務標籤拆解為獨立二維特徵向量陣列，杜絕單一字串查詢引起的注意力稀釋（Attention Dilution）與語意空間塌陷；導入靜態門檻（0.68）實施軟性局部屏蔽（Soft Masking），徹底過濾底噪語意污染。
-                  </li>
-                  <li><strong>非線性對數流形幾何精排演算法 (Geometric Aggregation Ranking)：</strong>
-                    設計雙層門控分流（Dual-stage Gating），結合 Haversine 距離非線性倒數阻尼函數、Google 評分、評論人氣（對數縮放）與語意相似度；將多維特徵矩陣映射至對數流形（Log-space），以加權幾何聚合演算法（Weighted Geometric Mean）實現乘法相依排序，徹底根絕極端單項缺失店家的惡性墊檔。
-                  </li>
-                  <li><strong>高可用分頁與會話狀態快取 (Session & Caching Mechanism)：</strong>
-                    架構全量候選池快取策略，整合 <strong>Redis</strong> 建立 `search_ssid` 分頁機制與診斷說明旗標（`is_fallback`、`ai_behavior_hint`），有效降低 80% 以上重複向量推論負載，提供下游 LLM 高信心度之上下文摘要與防幻覺指引。
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            <details open class="exp-collapse">
+              <summary class="exp-summary">
+                <strong>2025-01 - Present</strong>
+                <h3>專題組長 & 系統架構開發 | AI 美食聊天機器人</h3>
+                <p class="exp-brief">主導 4 人團隊研發二階段非同步檢索推薦系統，涵蓋自動化資料管線、DBMS 後台工具與向量幾何重排演算法。</p>
+              </summary>
+              <ul class="detail-list">
+                <li>▹ <strong>團隊領導與協調 (Leadership)：</strong>
+                  <ul>
+                    <li>擔任專案組長領導 <strong>4</strong> 人開發團隊。</li>
+                    <li>透過 Google Sheets 進行開發規格文件制定格式與撰寫，專題開發會議管理，開發職責管理。</li>
+                    <li>透過 Github與Git 進行發行版本控管。</li>
+                  </ul>
+                </li>
+                <li>▹ <strong>經費與空間爭取 (Acquisition)：</strong>
+                  <ul>
+                    <li>代表團隊與指導教授商榷並成功獲取實驗室獨立研究空間。</li>
+                    <li>獲取兩張 <strong>RTX 4060 Ti 16GB</strong> 專業顯卡，共價值 <strong>32,000 $NT</strong> 之 AI 運算資源採購許可。</li>
+                  </ul>
+                </li>
+                <li>▹ <strong>基礎設施與工作站運維 (Infrastructure)：</strong>
+                  <ul>
+                    <li>規劃並佈署實驗室本地網路環境 (Local Network)。</li>
+                    <li>負責 <strong>AI 推論工作站</strong> 的硬體建置、軟體環境配置（如驅動與推論框架）與後續運維。</li>
+                    <li>建置並提供 <strong>資料庫工作站</strong>，負責 RDBMS 與向量資料庫之儲存環境優化與維護。</li>
+                  </ul>
+                </li>
+                <li>▹ <strong>資料管線建置 (Data Pipeline)：</strong>
+                  <ul>
+                    <li>利用 GCP API 實作自動化數據蒐集管線。</li>
+                    <li>自主開發自動化管線，完整涵蓋店家資料之 <strong>新增 (Create)</strong>、<strong>刪除 (Delete)</strong>、<strong>編輯 (Edit)</strong> 與 <strong>即時更新 (Update)</strong>。</li>
+                    <li>實作高效能資料清洗與格式標準化，確保資料庫內容之準確性與一致性。</li>
+                  </ul>
+                </li>
+                <li>▹ <strong>內部平台與標記系統 (Internal Tooling & Platform)：</strong>
+                  <ul>
+                    <li>獨立研發 <strong>客製化資料庫管理後台 (DBMS Console)</strong>，整合批次指派、進度儀表板、GIS 地圖視覺化與 RBAC 權限管理模組。</li>
+                    <li>開發專用 <strong>Python 桌面端標記輔助工具 (GUI App)</strong>，建立人機協同 (Human-in-the-loop) 標記流程，加速非結構化評論之語意屬性與特徵錄入。</li>
+                    <li>制定標準化資料驗收與品管機制，成功驅動團隊高效率完成數千筆高精準度 Ground Truth 資料集入庫。</li>
+                  </ul>
+                </li>
+                <li>▹ <strong>混合式檢索與重排系統架構 (Hybrid Search & RAG System)：</strong>
+                  <ul>
+                    <li><strong>二階段檢索管線架構 (Two-Stage Pipeline)：</strong>
+                      以 Python 3.12 (FastAPI/ASGI) 與 Docker-Compose 構建高效非同步微服務；設計「先過濾後檢索 (Filtering then Retrieval)」架構，以 <strong>aiomysql</strong> 進行 RDBMS 剛性條件預篩選（時空距離、營業狀態、設施），大幅收斂檢索空間並提升 99% 以上之計算吞吐量。
+                    </li>
+                    <li><strong>多通路語意召回與多維向量解耦 (Multi-path Vector Retrieval)：</strong>
+                      採用 <strong>BGE-M3</strong> 嵌入模型與 <strong>Qdrant</strong> 向量資料庫，將菜系、食物品類、口味與服務標籤拆解為獨立二維特徵向量陣列，杜絕單一字串查詢引起的注意力稀釋（Attention Dilution）與語意空間塌陷；導入靜態門檻（0.68）實施軟性局部屏蔽（Soft Masking），徹底過濾底噪語意污染。
+                    </li>
+                    <li><strong>非線性對數流形幾何精排演算法 (Geometric Aggregation Ranking)：</strong>
+                      設計雙層門控分流（Dual-stage Gating），結合 Haversine 距離非線性倒數阻尼函數、Google 評分、評論人氣（對數縮放）與語意相似度；將多維特徵矩陣映射至對數流形（Log-space），以加權幾何聚合演算法（Weighted Geometric Mean）實現乘法相依排序，徹底根絕極端單項缺失店家的惡性墊檔。
+                    </li>
+                    <li><strong>高可用分頁與會話狀態快取 (Session & Caching Mechanism)：</strong>
+                      架構全量候選池快取策略，整合 <strong>Redis</strong> 建立 `search_ssid` 分頁機制與診斷說明旗標（`is_fallback`、`ai_behavior_hint`），有效降低 80% 以上重複向量推論負載，提供下游 LLM 高信心度之上下文摘要與防幻覺指引。
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </details>
           </li>
           <li>
-            <strong>2025-07 – 2025-08</strong>
-            <h3>軟體測試工程師實習生 | 森淨科技</h3>
-            <ul class="detail-list">
-              <li>▹ 執行 Web 功能測試與 API 測試 (Postman)。</li>
-              <li>▹ 撰寫測試計畫與測試報告並協助開發團隊重現 Bug。</li>
-            </ul>
+            <details class="exp-collapse">
+              <summary class="exp-summary">
+                <strong>2025-07 – 2025-08</strong>
+                <h3>軟體測試工程師實習生 | 森淨科技</h3>
+                <p class="exp-brief">執行 Web 與 API 自動化/手動測試，撰寫品質檢驗報告並協同工程團隊定位 Defect。</p>
+              </summary>
+              <ul class="detail-list">
+                <li>▹ 執行 Web 功能測試與 API 測試 (Postman)。</li>
+                <li>▹ 撰寫測試計畫與測試報告並協助開發團隊重現 Bug。</li>
+              </ul>
+            </details>
           </li>
           <li>
-            <strong>2024-02 – 2025-02</strong>
-            <h3>CTF 平台運維人員 | 資通安全實務人才培育計畫</h3>
-            <ul class="detail-list">
-              <li>▹ <strong>虛擬化管理 (XCP-ng)：</strong>管理機房 VM 叢集，執行資源調度與備份。</li>
-              <li>▹ <strong>基礎設施維運：</strong>負責機房伺服器硬體維護與網路設定。</li>
-              <li>▹ <strong>容器化部署：</strong>結合 Docker 技術快速部署資安競賽題目。</li>
-            </ul>
+            <details class="exp-collapse">
+              <summary class="exp-summary">
+                <strong>2024-02 – 2025-02</strong>
+                <h3>CTF 平台運維人員 | 資通安全實務人才培育計畫</h3>
+                <p class="exp-brief">維護機房 XCP-ng 虛擬化叢集與網路架構，運用 Docker 快速封裝部署資安競賽環境。</p>
+              </summary>
+              <ul class="detail-list">
+                <li>▹ <strong>虛擬化管理 (XCP-ng)：</strong>管理機房 VM 叢集，執行資源調度與備份。</li>
+                <li>▹ <strong>基礎設施維運：</strong>負責機房伺服器硬體維護與網路設定。</li>
+                <li>▹ <strong>容器化部署：</strong>結合 Docker 技術快速部署資安競賽題目。</li>
+              </ul>
+            </details>
           </li>
         </ul>
       </div>
