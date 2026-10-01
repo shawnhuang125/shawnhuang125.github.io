@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>System Entrances | Shawn Huang</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 針對入口頁面的專用微調樣式（可直接留在這裡或貼入 style.css） */
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .portal-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 230px;
+    }
+    .portal-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .portal-icon {
+      font-size: 26px;
+      color: var(--primary);
+      background: rgba(30, 58, 138, 0.08);
+      padding: 12px;
+      border-radius: 12px;
+      min-width: 52px;
+      text-align: center;
+    }
+    .portal-status {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981; /* 綠燈正常運行 */
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="brand" href="index.html">Shawn Huang<span class="dot">.</span> Portfolio</a>
+      <div class="nav-links">
+        <a href="index.html#exp-heading">Experience</a>
+        <a href="index.html#projects-heading">Projects</a>
+        <a href="entrances.html" style="color: var(--primary); background: rgba(30, 58, 138, 0.08);">Entrances</a>
+        <a href="index.html#contact-heading">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>System Entrances & Portals</h1>
+      <p class="subtitle">集中管理各項微服務後台、管理主控台、資料標記平台與 API 儀表板入口。</p>
+
+      <div class="portal-grid">
+        <!-- 入口 1: 客製化 DBMS 後台 -->
+        <article class="card portal-card">
+          <div>
+            <div class="portal-header">
+              <div class="portal-icon"><i class="fas fa-database"></i></div>
+              <div>
+                <h3 style="margin: 0 0 4px 0; font-size: 1.25rem;">Custom DBMS Console</h3>
+                <span class="meta-text" style="font-size: 12px;"><span class="portal-status"></span>Internal Web App</span>
+              </div>
+            </div>
+            <p style="color: var(--muted); font-size: 0.95rem; margin: 0 0 14px 0;">
+              店家資料庫管理主控台，整合 GIS 地圖標註視覺化、RBAC 權限管理及批次資料清洗管線。
+            </p>
+            <div class="badges">
+              <span class="badge">FastAPI</span>
+              <span class="badge">MySQL</span>
+              <span class="badge">GIS Map</span>
+            </div>
+          </div>
+          <div class="project-links" style="margin-top: 20px;">
+            <a href="https://youtu.be/W34ugY3443A" target="_blank" class="btn btn-primary">
+              <i class="fas fa-external-link-alt"></i> 前往系統 / 演示
+            </a>
+            <a href="https://github.com/shawnhuang125/map-api-application" target="_blank" class="btn btn-outline">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </article>
+
+        <!-- 入口 2: Search API & Swagger Docs -->
+        <article class="card portal-card">
+          <div>
+            <div class="portal-header">
+              <div class="portal-icon"><i class="fas fa-bolt"></i></div>
+              <div>
+                <h3 style="margin: 0 0 4px 0; font-size: 1.25rem;">Hybrid Search API</h3>
+                <span class="meta-text" style="font-size: 12px;"><span class="portal-status"></span>RESTful Microservice</span>
+              </div>
+            </div>
+            <p style="color: var(--muted); font-size: 0.95rem; margin: 0 0 14px 0;">
+              非同步混合檢索後端服務，負責多向量解耦召回、軟性降級加權演算法與 OpenAPI 文件互動測試。
+            </p>
+            <div class="badges">
+              <span class="badge">FastAPI Docs</span>
+              <span class="badge">Qdrant</span>
+              <span class="badge">BGE-M3</span>
+            </div>
+          </div>
+          <div class="project-links" style="margin-top: 20px;">
+            <a href="https://youtu.be/QhcSO8ZEuds" target="_blank" class="btn btn-primary">
+              <i class="fas fa-play-circle"></i> 服務示範
+            </a>
+            <a href="https://github.com/shawnhuang125/Search_API" target="_blank" class="btn btn-outline">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </article>
+
+        <!-- 入口 3: 語意標註輔助工具 (GUI Tool) -->
+        <article class="card portal-card">
+          <div>
+            <div class="portal-header">
+              <div class="portal-icon"><i class="fas fa-tags"></i></div>
+              <div>
+                <h3 style="margin: 0 0 4px 0; font-size: 1.25rem;">Review Labeling Tool</h3>
+                <span class="meta-text" style="font-size: 12px;"><span class="portal-status"></span>Desktop Application</span>
+              </div>
+            </div>
+            <p style="color: var(--muted); font-size: 0.95rem; margin: 0 0 14px 0;">
+              Python 桌面端評論標記小幫手，提供人機協同 (HITL) 標記工作流，支援批次特徵分類與品質檢核。
+            </p>
+            <div class="badges">
+              <span class="badge">Python</span>
+              <span class="badge">Tkinter</span>
+              <span class="badge">HITL</span>
+            </div>
+          </div>
+          <div class="project-links" style="margin-top: 20px;">
+            <a href="https://github.com/shawnhuang125/Data_Labeling_Assistant" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> 開源專案
+            </a>
+          </div>
+        </article>
+
+        <!-- 入口 4: HROUTE 網路核心實作 -->
+        <article class="card portal-card">
+          <div>
+            <div class="portal-header">
+              <div class="portal-icon"><i class="fas fa-network-wired"></i></div>
+              <div>
+                <h3 style="margin: 0 0 4px 0; font-size: 1.25rem;">HROUTE Network Framework</h3>
+                <span class="meta-text" style="font-size: 12px;"><span class="portal-status"></span>Linux Kernel / System</span>
+              </div>
+            </div>
+            <p style="color: var(--muted); font-size: 0.95rem; margin: 0 0 14px 0;">
+              獨立研發之輕量化 Linux 路由核心，支援原生 DHCP 伺服器排程分配、封包轉發與 NAT 轉換。
+            </p>
+            <div class="badges">
+              <span class="badge">C Language</span>
+              <span class="badge">Linux Raw Socket</span>
+              <span class="badge">DHCP</span>
+            </div>
+          </div>
+          <div class="project-links" style="margin-top: 20px;">
+            <a href="https://www.youtube.com/watch?v=f66AXxM5Rpo" target="_blank" class="btn btn-primary">
+              <i class="fas fa-play"></i> 運作示範
+            </a>
+            <a href="https://github.com/shawnhuang125/router" target="_blank" class="btn btn-outline">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </article>
+
+        <!-- 入口 5: Business API (二次搜尋模組) -->
+        <article class="card portal-card">
+          <div>
+            <div class="portal-header">
+              <div class="portal-icon"><i class="fas fa-store"></i></div>
+              <div>
+                <h3 style="margin: 0 0 4px 0; font-size: 1.25rem;">Business Search Microservice</h3>
+                <span class="meta-text" style="font-size: 12px;"><span class="portal-status"></span>Backend Service</span>
+              </div>
+            </div>
+            <p style="color: var(--muted); font-size: 0.95rem; margin: 0 0 14px 0;">
+              提供前端二次檢索店家細節資訊的專用微服務，優化下游 LLM 生成時之 Token 消耗與快取負載。
+            </p>
+            <div class="badges">
+              <span class="badge">SQLAlchemy</span>
+              <span class="badge">Redis Cache</span>
+              <span class="badge">Token Optimizer</span>
+            </div>
+          </div>
+          <div class="project-links" style="margin-top: 20px;">
+            <a href="https://github.com/shawnhuang125/business_api" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </article>
+
+        <!-- 入口 6: 自動化 ETL 資料管線模組 -->
+        <article class="card portal-card">
+          <div>
+            <div class="portal-header">
+              <div class="portal-icon"><i class="fas fa-cogs"></i></div>
+              <div>
+                <h3 style="margin: 0 0 4px 0; font-size: 1.25rem;">Data Cleansing & ETL Pipeline</h3>
+                <span class="meta-text" style="font-size: 12px;"><span class="portal-status"></span>Automation Workflow</span>
+              </div>
+            </div>
+            <p style="color: var(--muted); font-size: 0.95rem; margin: 0 0 14px 0;">
+              店家批次自動化清洗、特徵嵌入計算管線，支援店家資料之 CRUD 生命週期即時維護。
+            </p>
+            <div class="badges">
+              <span class="badge">Python ETL</span>
+              <span class="badge">Google Places API</span>
+              <span class="badge">Data Integrity</span>
+            </div>
+          </div>
+          <div class="project-links" style="margin-top: 20px;">
+            <a href="https://github.com/shawnhuang125/Graduation-Project" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Pipeline Code
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="footer-text">
+      © <span id="year">2025</span> Shawn Huang — Built with passion
+    </p>
+  </footer>
+
+  <script>
+    // 自動更新年份
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
