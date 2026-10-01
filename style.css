@@ -1,4 +1,4 @@
-/* ===== Design Tokens (現代亮白與科技藍主題) ===== */
+/* ===== Design Tokens (沉穩海軍深藍主題) ===== */
 :root {
   --bg: #f8fafc;          /* 柔和霧面白底 */
   --fg: #0f172a;          /* 深 Slate 灰黑，對比清晰 */
@@ -6,9 +6,10 @@
   --card: #ffffff;        /* 純白卡片背景 */
   --border: #e2e8f0;      /* 柔和淺灰邊框 */
   --shadow: 0 4px 12px rgba(15, 23, 42, 0.05); /* 自然柔光陰影 */
-  --primary: #2563eb;     /* 科技藍主色 */
-  --primary-2: #0ea5e9;   /* 天藍輔助色 */
-  --ring: 0 0 0 3px rgba(37, 99, 235, 0.18);
+  --primary: #1e3a8a;     /* 經典海軍深藍 (Navy Deep Blue) */
+  --primary-hover: #172554;/* 更深一層的沉穩深藍 (Hover 專用) */
+  --primary-light: #2563eb;/* 互動細微點綴藍 */
+  --ring: 0 0 0 3px rgba(30, 58, 138, 0.18);
   --radius: 14px;
   --grad-1: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
 }
@@ -47,7 +48,7 @@ nav {
   padding: 8px 12px; border-radius: 10px; transition: all .25s ease;
   color: var(--muted); font-weight: 600;
 }
-.nav-links a:hover { color: var(--primary); background: rgba(37, 99, 235, 0.08); transform: translateY(-2px); }
+.nav-links a:hover { color: var(--primary); background: rgba(30, 58, 138, 0.08); transform: translateY(-2px); }
 
 /* ===== Layout & Sections ===== */
 main { max-width: 1040px; margin: 42px auto; padding: 0 20px 60px; }
@@ -63,7 +64,7 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 }
 .card:hover { 
   transform: translateY(-2px); 
-  border-color: rgba(37, 99, 235, 0.3); 
+  border-color: rgba(30, 58, 138, 0.3); 
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06); 
 }
 
@@ -78,7 +79,7 @@ h2 { color: var(--primary); margin-bottom: 15px; }
 .timeline > li::before { 
   content: ''; position: absolute; left: 0; top: 14px; width: 16px; height: 16px; 
   border-radius: 50%; background: var(--primary); border: 3px solid var(--card); z-index: 1;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.2);
 }
 
 /* ===== Experience Collapsible (<details> & <summary>) ===== */
@@ -108,7 +109,7 @@ h2 { color: var(--primary); margin-bottom: 15px; }
   font-size: 13px;
   margin-bottom: 6px;
   padding: 2px 10px;
-  background: rgba(37, 99, 235, 0.08);
+  background: rgba(30, 58, 138, 0.08);
   border-radius: 6px;
   font-weight: 700;
 }
@@ -224,9 +225,9 @@ details.exp-collapse[open] .detail-list {
   .projects-grid { grid-template-columns: 1fr; }
 }
 .project-card:hover { 
-  border-color: rgba(37, 99, 235, 0.4); 
+  border-color: rgba(30, 58, 138, 0.4); 
   border-top-color: var(--primary); 
-  box-shadow: 0 16px 30px rgba(37, 99, 235, 0.08);
+  box-shadow: 0 16px 30px rgba(30, 58, 138, 0.08);
 }
 .project-card h3 { 
   margin: 0 0 10px 0; 
@@ -267,7 +268,7 @@ details.exp-collapse[open] .detail-list {
 .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
 .badge { 
   padding: 5px 10px; border-radius: 999px; font-size: 12px; border: 1px solid var(--border); 
-  color: var(--primary); background: rgba(37, 99, 235, 0.06); cursor: pointer; transition: all 0.3s;
+  color: var(--primary); background: rgba(30, 58, 138, 0.06); cursor: pointer; transition: all 0.3s;
   font-weight: 500;
 }
 .badge:hover { background: var(--primary); color: #ffffff; border-color: transparent; transform: translateY(-2px); }
@@ -294,7 +295,12 @@ details.exp-collapse[open] .detail-list {
   color: #ffffff;
   border: 1px solid var(--primary);
 }
-.btn-primary:hover { background: #1d4ed8; border-color: #1d4ed8; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2); }
+.btn-primary:hover { 
+  background: var(--primary-hover); 
+  border-color: var(--primary-hover); 
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 10px rgba(30, 58, 138, 0.25); 
+}
 .btn-outline {
   border: 1px solid var(--border);
   color: var(--muted);
@@ -303,7 +309,7 @@ details.exp-collapse[open] .detail-list {
 .btn-outline:hover {
   border-color: var(--primary);
   color: var(--primary);
-  background: rgba(37, 99, 235, 0.05);
+  background: rgba(30, 58, 138, 0.05);
   transform: translateY(-2px);
 }
 
