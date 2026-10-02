@@ -5,100 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LINE QR Code | Shawn Huang</title>
   <meta name="description" content="Scan to add Shawn Huang on LINE" />
-  <meta name="color-scheme" content="light dark" />
 
+  <!-- Font Awesome 圖示 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
+  <!-- 引入全域 CSS（若路徑不同請自行調整，例如 ./css/style.css） -->
+  <link rel="stylesheet" href="style.css" />
+
   <style>
-    /* ===== Design Tokens ===== */
-    :root {
-      --bg: #0d0d0d;
-      --fg: #f5f5f5;
-      --muted: #d4d4d8;
-      --card: #1a1a1a;
-      --border: #333;
-      --shadow: 0 10px 30px rgba(0, 0, 0, .6);
-      --primary: #facc15;
-      --ring: 0 0 0 3px rgba(250, 204, 21, .25);
-      --radius: 14px;
-      --grad-1: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-    }
-
-    /* ===== Base ===== */
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
+    /* 此頁面專屬的佈局輔助樣式（其餘全部吃全域變數與樣式） */
     body {
-      margin: 0;
-      font: 16px/1.7 ui-sans-serif, system-ui, -apple-system, sans-serif;
-      color: var(--fg);
-      background: var(--grad-1) fixed;
-      display: flex;       /* 新增：使用 Flexbox 讓 Footer 置底 */
+      display: flex;
       flex-direction: column;
+      min-height: 100vh;
     }
-    a { color: inherit; text-decoration: none; transition: color .25s ease; }
-    a:hover { color: var(--primary); }
-
-    /* ===== Header ===== */
-    header {
-      position: sticky; top: 0; z-index: 20;
-      backdrop-filter: saturate(120%) blur(10px);
-      background: color-mix(in srgb, var(--card) 80%, transparent);
-      border-bottom: 1px solid var(--border);
-      flex-shrink: 0;
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 40px auto;
     }
-    nav {
-      max-width: 1040px; margin: 0 auto; padding: 14px 20px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .brand { font-weight: 800; letter-spacing: .3px; }
-    .brand .dot { color: var(--primary); }
-    
-    /* ===== Main Layout ===== */
-    main { 
-        max-width: 720px; 
-        margin: 42px auto; 
-        padding: 0 20px 60px; 
-        text-align: center; 
-        flex: 1; /* 新增：讓 Main 撐開高度，Footer 就會被推到底部 */
-        width: 100%;
-    }
-    h1 { font-size: clamp(24px, 4vw, 32px); margin-bottom: 24px; }
-
-    /* ===== QR Code Card ===== */
     .qr-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 32px;
-      display: inline-block;
-      margin-bottom: 24px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 28px;
     }
     .qr-image {
       max-width: 100%;
       height: auto;
       border-radius: 8px;
+      border: 1px solid var(--border);
     }
-    .note { color: var(--muted); margin-top: 16px; display: block; }
-    
-    /* ===== Back Button ===== */
-    .btn-back {
-        display: inline-flex; align-items: center; gap: 8px;
-        padding: 10px 20px;
-        background: var(--card); border: 1px solid var(--border);
-        border-radius: 10px; color: var(--muted); font-weight: 600;
-    }
-    .btn-back:hover {
-        border-color: var(--primary); color: var(--primary); background: rgba(250, 204, 21, 0.05);
-    }
-
-    /* ===== Footer ===== */
-    footer { 
-        text-align: center; 
-        padding: 24px; 
-        border-top: 1px solid var(--border); 
-        color: var(--muted); 
-        flex-shrink: 0;
+    .note {
+      color: var(--muted);
+      margin-top: 16px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -111,22 +56,28 @@
 
   <main>
     <h1>Scan to Add Me on LINE</h1>
-    
-    <div class="qr-card">
-      <img src="./assets/images/line-qrcode.png" alt="Shawn Huang's LINE QR Code" class="qr-image" width="250" height="250">
-      <small class="note">Open LINE > Add Friends > QR Code</small>
+    <p class="subtitle">歡迎透過 LINE 與我聯繫交流</p>
+
+    <!-- 套用全域的 .card 與懸浮動效 -->
+    <div class="card qr-card">
+      <img src="./assets/images/line-qrcode.png" alt="Shawn Huang's LINE QR Code" class="qr-image" width="220" height="220">
+      <span class="note">Open LINE &gt; Add Friends &gt; QR Code</span>
     </div>
-    
+
+    <!-- 套用全域按鈕元件 .btn .btn-outline -->
     <div>
-        <a href="index.html" class="btn-back">
-            <i class="fas fa-arrow-left"></i> Back to Contact
-        </a>
+      <a href="index.html" class="btn btn-outline">
+        <i class="fas fa-arrow-left"></i> Back to Contact
+      </a>
     </div>
   </main>
 
   <footer>
-    <small>© <span id="year"></span> Shawn Huang</small>
+    <p class="footer-text">© <span id="year"></span> Shawn Huang</p>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
