@@ -125,6 +125,21 @@ h2 { color: var(--primary); margin-bottom: 15px; }
   color: var(--primary);
 }
 
+/* 榮譽/獲獎標籤 */
+.award-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 8px 0;
+  padding: 3px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #b45309; /* 帶質感的金琥珀色 */
+  background: rgba(245, 158, 11, 0.12); /* 柔和金黃底色 */
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 6px;
+}
+
 /* 簡短概述文字 */
 .exp-brief {
   margin: 4px 0 0 0;
