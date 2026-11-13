@@ -11,6 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageDisplay = document.getElementById('page-number');
     const totalPages = Math.ceil(projectItems.length / itemsPerPage);
 
+    const expDetails = document.querySelectorAll('.exp-collapse');
+    expDetails.forEach((targetDetail) => {
+        targetDetail.addEventListener('toggle', () => {
+            if (targetDetail.open) {
+                expDetails.forEach((detail) => {
+                    if (detail !== targetDetail) {
+                        detail.removeAttribute('open');
+                    }
+                });
+            }
+        });
+    });
+
     function updateProjectDisplay() {
         const start = currentPage * itemsPerPage;
         const end = start + itemsPerPage;
