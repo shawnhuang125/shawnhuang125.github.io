@@ -3,16 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearSpan = document.getElementById('year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    const itemsPerPage = 4;
-    let currentPage = 0;
-    
-    // ✅ 這裡改掉：直接抓 .project-card，避開 ID 權重問題
-    const projectItems = document.querySelectorAll('.project-card');
-    const pageDisplay = document.getElementById('page-number');
-    const totalPages = Math.ceil(projectItems.length / itemsPerPage);
-
+    // ✅ Experience 手風琴效果：預設全部闔上，點擊展開時自動收合其他項目
     const expDetails = document.querySelectorAll('.exp-collapse');
     expDetails.forEach((targetDetail) => {
+        // 強制在頁面載入時全部闔上
+        targetDetail.removeAttribute('open');
+
+        // 監聽展開/收合事件，實現手風琴互斥效果
         targetDetail.addEventListener('toggle', () => {
             if (targetDetail.open) {
                 expDetails.forEach((detail) => {
@@ -23,6 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Projects 分頁功能
+    const itemsPerPage = 4;
+    let currentPage = 0;
+    
+    // ✅ 直接抓 .project-card，避開 ID 權重問題
+    const projectItems = document.querySelectorAll('.project-card');
+    const pageDisplay = document.getElementById('page-number');
+    const totalPages = Math.ceil(projectItems.length / itemsPerPage);
 
     function updateProjectDisplay() {
         const start = currentPage * itemsPerPage;
