@@ -57,11 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 掛載翻頁函數
     window.changePage = function(direction) {
+        if (totalPages === 0) return;
         currentPage += direction;
         if (currentPage < 0) currentPage = totalPages - 1;
         if (currentPage >= totalPages) currentPage = 0;
         updateProjectDisplay();
-        document.getElementById('projects-heading').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('projects-heading')?.scrollIntoView({ behavior: 'smooth' });
     };
 
     if (projectItems.length > 0) updateProjectDisplay();
