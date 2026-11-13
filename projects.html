@@ -4,332 +4,158 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects | Shawn Huang</title>
-  <meta name="description" content="Project portfolio of Shawn Huang" />
-  <meta name="color-scheme" content="light dark" />
-  <style>
-    /* ===== Design Tokens (match index.html - 黑金) ===== */
-    :root {
-      --bg: #0d0d0d;
-      --fg: #f5f5f5;
-      --muted: #d4d4d8;
-      --card: #1a1a1a;
-      --border: #333;
-      --shadow: 0 10px 30px rgba(0, 0, 0, .6);
-      --primary: #facc15;      /* 金黃 */
-      --primary-2: #eab308;
-      --ring: 0 0 0 3px rgba(250, 204, 21, .25);
-      --radius: 14px;
-      --grad-1: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-    }
-
-    /* ===== Base ===== */
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font: 16px/1.7 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "PingFang TC", "Microsoft JhengHei", sans-serif;
-      color: var(--fg);
-      background: var(--grad-1) fixed;
-      background-attachment: fixed;
-    }
-    a { color: inherit; text-decoration: none; }
-    a:focus-visible, button:focus-visible { outline: none; box-shadow: var(--ring); border-radius: 10px; }
-
-    /* ===== Header / Nav (match index) ===== */
-    header {
-      position: sticky; top: 0; z-index: 20;
-      backdrop-filter: saturate(120%) blur(10px);
-      background: color-mix(in srgb, var(--card) 80%, transparent);
-      border-bottom: 1px solid var(--border);
-    }
-    nav {
-      max-width: 1040px; margin: 0 auto; padding: 14px 20px;
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    }
-
-    /* Brand 樣式修復 + 動畫 */
-    .brand {
-      display: inline-block;
-      font-weight: 800;
-      letter-spacing: .3px;
-      color: var(--fg);
-      white-space: nowrap;
-      line-height: 1;
-      transition: transform .25s ease, text-shadow .25s ease, color .25s ease;
-    }
-    .brand .dot { color: var(--primary); }
-    .brand:hover { transform: translateY(-1px); text-shadow: 0 0 10px rgba(250, 204, 21, .35); }
-
-    .nav-links { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
-    .nav-links a {
-      padding: 8px 12px; border-radius: 10px;
-      color: var(--muted); font-weight: 600;
-      transition: color .25s ease, background .25s ease, transform .25s ease;
-    }
-    .nav-links a:hover {
-      color: var(--primary);
-      background: rgba(250, 204, 21, 0.08); /* 金色淡光 */
-      transform: translateY(-2px);
-    }
-
-    /* ===== Layout ===== */
-    main { max-width: 1040px; margin: 42px auto; padding: 0 20px 60px; }
-    h1 { font-size: clamp(26px, 4vw, 38px); margin: 0 0 8px; }
-    .subtitle { color: var(--muted); margin: 0 0 22px; }
-
-    /* ===== Grid & Card ===== */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px;
-      display: flex; flex-direction: column; gap: 10px;
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0,0,0,.75);
-      border-color: var(--primary);
-    }
-    .card h2 { margin: 2px 0 0; font-size: 1.2rem; }
-    .meta { font-size: 13px; color: var(--muted); }
-    .desc { margin: 2px 0 8px; }
-
-    /* ===== Badges & Buttons ===== */
-    .badges { display: flex; gap: 8px; flex-wrap: wrap; }
-    .badge {
-      padding: 5px 9px; border-radius: 999px; font-size: 12px;
-      border: 1px solid var(--border); color: var(--muted);
-      background: color-mix(in srgb, var(--card) 70%, transparent);
-      transition: background .3s ease, color .3s ease;
-    }
-    .badge:hover { background: var(--primary); color: #000; }
-
-    .actions { margin-top: auto; display: flex; gap: 10px; align-items: center; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 9px 12px; border-radius: 12px; border: 1px solid var(--border);
-      background: #fff0; color: var(--fg); font-weight: 700; cursor: pointer;
-      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
-      font-size: 14px;
-    }
-    .btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: var(--ring); }
-    .btn.primary { background: var(--primary); color: #000; border-color: transparent; }
-    .btn.primary:hover { background: var(--primary-2); }
-
-    /* ===== Footer ===== */
-    footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); color: var(--muted); }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 560px) {
-      .nav-links { gap: 10px; }
-      .nav-links a { padding: 6px 10px; }
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <nav>
-      <a class="brand" href="index.html" aria-label="Go to home">
-        Shawn Huang<span class="dot">.</span> Portfolio
-      </a>
+      <a class="brand" href="index.html">Shawn Huang<span class="dot">.</span> Portfolio</a>
       <div class="nav-links">
-        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="index.html#edu-heading">Education</a>
+        <a href="index.html#exp-heading">Experience</a>
+        <a href="projects.html" style="color: var(--primary); background: rgba(30, 58, 138, 0.08);">Projects</a>
+        <a href="entrances.html">Entrances</a>
+        <a href="https://shawnhuang125.github.io/blog/" target="_blank">Blog</a>
+        <a href="index.html#contact-heading">Contact</a>
       </div>
     </nav>
   </header>
 
   <main>
-    <h1>Projects</h1>
-    <p class="subtitle">Selected works across Data Engineering, and Full-Stack development.</p>
+    <section id="projects-heading" style="margin-top: 0;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <h1 style="font-size: clamp(26px, 3.5vw, 36px); color: var(--primary); margin-bottom: 6px;">Featured Projects</h1>
+          <p class="subtitle" style="margin-bottom: 24px;">點擊按鈕查看詳細程式碼或即時演示。</p>
+        </div>
+        <a href="index.html" class="btn btn-outline">
+          <i class="fas fa-arrow-left"></i> 返回首頁履歷
+        </a>
+      </div>
 
-    <div class="grid">
-
-
-      <article class="card">
-          <h2>VANTAGE</h2>
-          <p class="meta">FastAPI · MySQL · Jinja2 · CSS Grid (100vh)</p>
-          <p class="desc">
-              A professional-grade real-time stock monitoring terminal. Optimized with a <strong>100vh dual-scroll layout</strong> to prevent information overload. Features a custom <strong>Async Scraper</strong> for live data and a seamless favorite management system.
-          </p>
-          <div class="badges">
-              <span class="badge">Dual-Zone Scrolling</span>
-              <span class="badge">Async Data Fetching</span>
-              <span class="badge">100vh Layout</span>
-              <span class="badge">Custom UI Logic</span>
+      <div id="projects-grid-container" class="projects-grid">
+        <!-- 專案 1-8 完整排列 -->
+        <article class="card project-card">
+          <h3>HROUTE</h3>
+          <div class="meta-text">C · Linux · Networking</div>
+          <p class="description">獨立開發的輕量化 Linux 路由框架。實作 DHCP 引擎與 NAT 轉發。</p>
+          <div class="project-links">
+            <a href="https://github.com/shawnhuang125/router" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Code
+            </a>
+            <a href="https://www.youtube.com/watch?v=f66AXxM5Rpo" target="_blank" class="btn btn-outline">
+              <i class="fas fa-external-link-alt"></i> Demo
+            </a>
           </div>
-      
-          <div class="actions">
-              <a class="btn primary" href="https://github.com/shawnhuang125/vantage/releases" target="_blank" rel="noreferrer">Launch System →</a>
+        </article>
+        <article class="card project-card">
+          <h3>Search API for AI RAG</h3>
+          <div class="meta-text">Python · FastAPI · Qdrant</div>
+          <p class="description">混合檢索後端。整合 SQL 與 Vector 語義搜尋。</p>
+          <div class="project-links">
+            <a href="https://github.com/shawnhuang125/Search_API" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Code
+            </a>
+            <a href="https://youtu.be/QhcSO8ZEuds" target="_blank" class="btn btn-outline">
+              <i class="fas fa-external-link-alt"></i> Demo
+            </a>
           </div>
-      </article>
-
-      <article class="card">
-          <h2>HROUTE</h2>
-          <p class="meta">C · Linux · Networking · Modular Architecture</p>
-          <p class="desc">
-              A lightweight, high-efficiency <strong>Linux-based routing framework</strong>. Built with a modular C architecture, it features a core <strong>DHCP engine</strong> for automated IP management, alongside extensible modules for DNS and NAT services to ensure robust network packet forwarding.
-          </p>
-          <div class="badges">
-              <span class="badge">Modular Compilation</span>
-              <span class="badge">DHCP Protocol</span>
-              <span class="badge">Unified Binary Management</span>
-              <span class="badge">System-Level C</span>
+        </article>
+        <article class="card project-card">
+          <h3>Custom DBMS Console</h3>
+          <div class="meta-text">FastAPI · AJAX · MySQL</div>
+          <p class="description">整合管理介面，同步操作 MySQL 與 Qdrant。</p>
+          <div class="project-links">
+            <a href="https://github.com/shawnhuang125/map-api-application" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Code
+            </a>
+            <a href="https://youtu.be/W34ugY3443A" target="_blank" class="btn btn-outline">
+              <i class="fas fa-external-link-alt"></i> Demo
+            </a>
           </div>
-      
-          <div class="actions">
-              <a class="btn primary" href="https://github.com/shawnhuang125/router" target="_blank" rel="noreferrer">View Repository →</a>
+        </article>
+        <article class="card project-card">
+          <h3>Business_API</h3>
+          <div class="meta-text">FastAPI · SQLAlchemy</div>
+          <p class="description">優化 RAG Token 消耗的後端服務。</p>
+          <div class="project-links">
+            <a href="https://github.com/shawnhuang125/business_api" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Code
+            </a>
+            <a href="#" target="_blank" class="btn btn-outline">
+              <i class="fas fa-external-link-alt"></i> Demo
+            </a>
           </div>
-      </article>
-      
-      <article class="card">
-        <h2>Google Map Data selecting and cleaning</h2>
-        <p class="meta">Google APIs · Python · Flask · MySQL · Vector DB</p>
-        <p class="desc">Conversational restaurant recommendation using Google APIs and user reviews.</p>
-        <div class="badges">
-          <span class="badge">Retrieval</span><span class="badge">ETL</span>
-        </div>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/shawnhuang125/Graduation-Project" target="_blank" rel="noreferrer">View Code →</a>
-        </div>
-      </article>
+        </article>
+        <article class="card project-card">
+          <h3>Google Map ETL</h3>
+          <div class="meta-text">Python · Google APIs</div>
+          <p class="description">自動化清洗非結構化餐飲數據。</p>
+          <div class="project-links">
+            <a href="https://github.com/shawnhuang125/Graduation-Project" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Code
+            </a>
+            <a href="#" target="_blank" class="btn btn-outline">
+              <i class="fas fa-external-link-alt"></i> Demo
+            </a>
+          </div>
+        </article>
+        <article class="card project-card">
+          <h3>Review Labeling Tool</h3>
+          <div class="meta-text">Python · tkinter</div>
+          <p class="description">高效數據標註 GUI 應用，支援批量更新。</p>
+          <div class="project-links">
+            <a href="https://github.com/shawnhuang125/Data_Labeling_Assistant" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Code
+            </a>
+            <a href="#" target="_blank" class="btn btn-outline">
+              <i class="fas fa-external-link-alt"></i> Demo
+            </a>
+          </div>
+        </article>
+        <article class="card project-card">
+          <h3>Media Downloader</h3>
+          <div class="meta-text">Python · FFmpeg</div>
+          <p class="description">跨平台影音轉換工具，支援格式下載。</p>
+          <div class="project-links">
+            <a href="https://github.com/shawnhuang125/x.com_converter" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Code
+            </a>
+            <a href="#" target="_blank" class="btn btn-outline">
+              <i class="fas fa-external-link-alt"></i> Demo
+            </a>
+          </div>
+        </article>
+        <article class="card project-card">
+          <h3>IoT Door Monitor</h3>
+          <div class="meta-text">C · ESP32 · Flask</div>
+          <p class="description">ESP32 門磁監測系統，整合 Telegram 通知。</p>
+          <div class="project-links">
+            <a href="https://github.com/shawnhuang125/Magnetic_Door_Monitoring_System" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github"></i> Code
+            </a>
+            <a href="#" target="_blank" class="btn btn-outline">
+              <i class="fas fa-external-link-alt"></i> Demo
+            </a>
+          </div>
+        </article>
+      </div>
 
-      <article class="card">
-        <h2>Search API for AI RAG</h2>
-        <p class="meta">Google APIs · Python · Flask · MySQL · Vector DB</p>
-        <p class="desc">
-          A backend search system designed for AI RAG retrieval. It implements hybrid search (SQL + Vector) to support conversational restaurant recommendations.
-        </p>
-        <div class="badges">
-          <span class="badge">RAG</span>
-          <span class="badge">Hybrid Search</span>
-          <span class="badge">Backend API</span>
-        </div>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/shawnhuang125/Search_API/releases" target="_blank" rel="noreferrer">View Code →</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h2>Business_API</h2>
-        <p class="meta">FastAPI · MySQL · SQLAlchemy · Image Streaming</p>
-        <p class="desc">
-          A lightweight backend service tailored for AI-driven recommendation systems. By fetching detailed merchant metadata (hours, amenities, photos) via HTTP GET with PID, it <strong>significantly reduces Token consumption</strong> in RAG generative models and enhances system responsiveness.
-        </p>
-        <div class="badges">
-          <span class="badge">Token Optimization</span>
-          <span class="badge">Hybrid RAG Architecture</span>
-          <span class="badge">Security Hardened</span>
-        </div>
-
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/shawnhuang125/business_api/releases" target="_blank" rel="noreferrer">View Code →</a>
-        </div>
-      </article>
-
-      
-
-      <article class="card">
-        <h2>Restaurant Review Labeling Tool</h2>
-        <p class="meta">Python 3 · tkinter · JSON</p>
-        <p class="desc">
-          A desktop GUI application designed for efficient data annotation. 
-          Features smart batch updates for same-store reviews, auto-fill memory, and custom multi-select widgets.
-        </p>
-        
-        <div class="badges">
-          <span class="badge">Python</span>
-          <span class="badge">tkinter</span>
-          <span class="badge">PyInstaller</span>
-          <span class="badge">Data Cleaning</span>
-          <span class="badge">Dark Mode UI</span>
-        </div>
-        
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/shawnhuang125/Data_Labeling_Assistant/releases" target="_blank" rel="noreferrer">View Code →</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h2>Hybrid Database Management Console</h2>
-        <p class="meta">FastAPI · AJAX · Vanilla JS · MySQL · Qdrant</p>
-        <p class="desc">
-          A high-speed management interface for Qdrant and MySQL. 
-          Leverages **FastAPI** for asynchronous backend processing and **AJAX** for seamless, dynamic frontend updates without page reloads.
-        </p>
-        <div class="badges">
-          <span class="badge">FastAPI</span>
-          <span class="badge">AJAX</span>
-          <span class="badge">Qdrant</span>
-          <span class="badge">MySQL</span>
-        </div>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/shawnhuang125/map-api-application/releases" target="_blank" rel="noreferrer">View Code →</a>
-        </div>
-      </article>
-
-      
-      <article class="card">
-        <h2>Multi-Platform Audio Converter</h2>
-        <p class="meta">Python Tkinter · FFmpeg · yt_dlp</p>
-        <p class="desc">
-          A desktop application that downloads and converts X.com (formerly Twitter) videos into high-quality audio formats.
-          Features include real-time progress display, output directory selection, and FFmpeg-based format conversion.
-        </p>
-        <div class="badges">
-          <span class="badge">Tkinter GUI</span>
-          <span class="badge">FFmpeg</span>
-          <span class="badge">yt_dlp</span>
-          <span class="badge">PyInstaller</span>
-        </div>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/shawnhuang125/x.com_converter/releases" target="_blank" rel="noreferrer">
-            View Code →
-          </a>
-        </div>
-      </article>
-      
-        <article class="card">
-        <h2>Magnetic Door Monitoring System</h2>
-        <p class="meta"> C </p>
-        <p class="desc">
-          The ESP32 reads the magnetic door sensor and sends the status to the local Flask API server, which then forwards the message to the Telegram Bot.
-        </p>
-        <div class="badges">
-          <span class="badge">C</span>
-          <span class="badge">Python</span>
-        </div>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/shawnhuang125/Magnetic_Door_Monitoring_System" target="_blank" rel="noreferrer">
-            View Code →
-          </a>
-        </div>
-      </article>
-      
-    </div>
+      <div class="pagination-controls">
+        <button class="pag-btn" onclick="changePage(-1)"><i class="fas fa-chevron-left"></i></button>
+        <span id="page-number">1 / 2</span>
+        <button class="pag-btn" onclick="changePage(1)"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <small>© <span id="year"></span> Shawn Huang — Built with ❤️ using GitHub Pages</small>
+    <p class="footer-text">
+      © <span id="year"></span> Shawn Huang — Built with passion
+    </p>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // 快捷鍵：按 / 聚焦到第一個專案的按鈕（可移除）
-    window.addEventListener('keydown', (e) => {
-      if (e.key === '/') {
-        e.preventDefault();
-        const btn = document.querySelector('.btn, a, button');
-        btn && btn.focus();
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
