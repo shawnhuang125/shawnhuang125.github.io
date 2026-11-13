@@ -51,6 +51,40 @@
           <li>
             <details open class="exp-collapse">
               <summary class="exp-summary">
+                <strong>2026-10 - Present</strong>
+                <h3>論文第一作者 | 基於向量邏輯閥與查詢優化之餐飲資訊語意召回機制研究</h3>
+                <p class="exp-brief">針對異質資料庫混合檢索中的「語意稀釋」與「零檢索盲區」問題，提出多命名向量子空間重構與適應性向量邏輯閥（Adaptive Vector Logical Threshold Gates）機制，透過 1 至 4 維消融實驗實證系統在維持 Precision@K 100% 下之召回率突破。</p>
+              </summary>
+              <ul class="detail-list">
+                <li>▹ <strong>研究問題與架構重構 (Vector Space Refactoring)：</strong>
+                  <ul>
+                    <li>剖析傳統單一向量大雜燴架構（Baseline）在極端短詞與複合條件查詢下的 <strong>語意塌陷（Semantic Collapse）</strong> 與特徵互相稀釋問題[cite: 3, 4]。</li>
+                    <li>將 <strong>Qdrant</strong> 向量集合重構為多命名向量子空間（Named Vectors）[cite: 2, 4]，拆解為二維屬性欄位（菜系、食物類型、口味風格、設施與服務標籤）與一維全域通道，實現維度級別的特徵隔離[cite: 4]。</li>
+                  </ul>
+                </li>
+                <li>▹ <strong>端到端意圖解析與邏輯閥機制 (LLM Intent Parsing & Threshold Gates)：</strong>
+                  <ul>
+                    <li>採用微調後之 <strong>Qwen 2.5</strong> 模型實作端到端意圖辨識與槽位抽取（Slot Filling），將自然語言需求轉換為高維度結構化邏輯樹與 MCP Tool 動態權重參數[cite: 2, 4]。</li>
+                    <li>依據 <strong>BGE-M3</strong> 嵌入模型之 Loss Score 特性，設計嚴格 <strong>適應性向量邏輯閥（Cosine Similarity $\ge 0.65$）</strong> 作為硬邏輯閘，精準攔截 0.50～0.60 區間之跨領域背景雜訊（如不同菜系標籤交叉污染）[cite: 3, 8]。</li>
+                  </ul>
+                </li>
+                <li>▹ <strong>混合檢索管線與實驗環境建置 (Hybrid RAG & Experimental Setup)：</strong>
+                  <ul>
+                    <li>整合 <strong>Python 3.12.8 (FastAPI / Uvicorn)</strong>、<strong>aiomysql</strong> 與 <strong>Docker-Compose</strong>，構建「先剛性過濾（地理半徑、集合交集營業時間）、後多路語意召回」之非同步微服務架構[cite: 3, 4]。</li>
+                    <li>設計遞進式消融實驗（Ablation Study），涵蓋單一特徵極端短詞集（SC-01～SC-06）與 2 至 4 維複合邏輯約束集（TC-01～TC-06），以召回筆數（Candidate Hits）與餘弦相似度分數進行系統性量化評估[cite: 3, 4, 5, 6, 7]。</li>
+                  </ul>
+                </li>
+                <li>▹ <strong>實證成果與學術貢獻 (Empirical Results & Contributions)：</strong>
+                  <ul>
+                    <li><strong>語意相似度校正與盲區修復：</strong> 核心短詞最高餘弦相似度自 Baseline 的 0.60～0.70 提升至 <strong>0.82～0.88</strong>；成功修復零檢索癱瘓（如單詞「飯」自 0 筆提升至 156 筆、「麵」自 1 筆提升至 161 筆，2～4 維複合查詢亦穩定維持充足候選集）[cite: 4, 6, 7]。</li>
+                    <li><strong>高純淨度檢索保證：</strong> 在全數單維與多維測試項目中，單題準確率（<strong>Precision@K</strong>）均維持 <strong>100.0%</strong>，為異質資料庫多路召回與向量邏輯閘設定提供具體工程設計指引[cite: 2, 8]。</li>
+                  </ul>
+                </li>
+              </ul>
+            </details>
+            
+            <details open class="exp-collapse">
+              <summary class="exp-summary">
                 <strong>2025-01 - 2026-10</strong>
                 <h3>專題組長 & 系統架構開發 | 基於RAG架構之個人化AI美食推薦對話系統</h3>
                 <div class="award-tag" style="display: inline-flex; align-items: center; gap: 6px; margin: 4px 0 8px 0; padding: 4px 12px; font-size: 0.85rem; font-weight: 700; color: #b45309; background-color: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 6px;">
