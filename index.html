@@ -25,20 +25,25 @@
   <main>
     <section id="profile-heading">
       <h1>Hello, I am Shawn Huang.</h1>
-      <p class="subtitle">Data Engineer | Network Systems Developer | Full-Stack Engineer</p>
+      <p class="subtitle">Network Systems Developer | Cloud Infrastructure Engineer | Data &amp; Full-Stack Engineer</p>
       <div class="card">
         <p>
-          專注於 <strong>Linux 網路系統開發</strong>，具備獨立實作 <strong>DHCP 伺服器模組</strong> 與處理低階網路通訊之經驗，擅長位址池管理與系統自動化配置。
+          專注於 <strong>Linux 網路系統開發</strong> 與 <strong>雲端基礎架構建置</strong>，具備獨立實作 <strong>DHCP 伺服器模組</strong>、管理 <strong>XCP-ng 虛擬化叢集</strong> 與容器編排之經驗，擅長位址池管理、企業網域整合與系統自動化配置。
         </p>
         <p>
-          在資料領域，整合 <strong>Hybrid Search 混合檢索架構</strong> 與資料庫設計。
+          在資料領域，整合 <strong>Hybrid Search 混合檢索架構</strong> 與高可用資料庫設計。
         </p>
         <div class="badges">
+          <span class="badge">雲端架構設計</span>
+          <span class="badge">XCP-ng 虛擬化叢集</span>
+          <span class="badge">Docker / Kubernetes</span>
+          <span class="badge">MicroK8s</span>
+          <span class="badge">Windows AD 網域管理</span>
+          <span class="badge">DHCP 網通程式設計</span>
+          <span class="badge">Python / C 語言</span>
           <span class="badge">資料 ETL 管線設計</span>
           <span class="badge">AI 應用開發</span>
           <span class="badge">全端應用開發</span>
-          <span class="badge">DHCP 網通程式設計</span>
-          <span class="badge">Python / C 語言</span>
           <span class="badge">資電整合</span>
         </div>
       </div>
@@ -62,19 +67,19 @@
                     <li>將 <strong>Qdrant</strong> 向量集合重構為多命名向量子空間（Named Vectors），拆解為二維屬性欄位（菜系、食物類型、口味風格、設施與服務標籤）與一維全域通道，實現維度級別的特徵隔離。</li>
                   </ul>
                 </li>
-                <li>▹ <strong>端到端意圖解析與邏輯閥機制 (LLM Intent Parsing & Threshold Gates)：</strong>
+                <li>▹ <strong>端到端意圖解析與邏輯閥機制 (LLM Intent Parsing &amp; Threshold Gates)：</strong>
                   <ul>
                     <li>採用微調後之 <strong>Qwen 2.5</strong> 模型實作端到端意圖辨識與槽位抽取（Slot Filling），將自然語言需求轉換為高維度結構化邏輯樹與 MCP Tool 動態權重參數。</li>
                     <li>依據 <strong>BGE-M3</strong> 嵌入模型之 Loss Score 特性，設計嚴格 <strong>適應性向量邏輯閥（Cosine Similarity &ge; 0.65）</strong> 作為硬邏輯閘，精準攔截 0.50～0.60 區間之跨領域背景雜訊（如不同菜系標籤交叉污染）。</li>
                   </ul>
                 </li>
-                <li>▹ <strong>混合檢索管線與實驗環境建置 (Hybrid RAG & Experimental Setup)：</strong>
+                <li>▹ <strong>混合檢索管線與實驗環境建置 (Hybrid RAG &amp; Experimental Setup)：</strong>
                   <ul>
                     <li>整合 <strong>Python 3.12.8 (FastAPI / Uvicorn)</strong>、<strong>aiomysql</strong> 與 <strong>Docker-Compose</strong>，構建「先剛性過濾（地理半徑、集合交集營業時間）、後多路語意召回」之非同步微服務架構。</li>
                     <li>設計遞進式消融實驗（Ablation Study），涵蓋單一特徵極端短詞集（SC-01～SC-06）與 2 至 4 維複合邏輯約束集（TC-01～TC-06），以召回筆數（Candidate Hits）與餘弦相似度分數進行系統性量化評估。</li>
                   </ul>
                 </li>
-                <li>▹ <strong>實證成果與學術貢獻 (Empirical Results & Contributions)：</strong>
+                <li>▹ <strong>實證成果與學術貢獻 (Empirical Results &amp; Contributions)：</strong>
                   <ul>
                     <li><strong>語意相似度校正與盲區修復：</strong> 核心短詞最高餘弦相似度自 Baseline 的 0.60～0.70 提升至 <strong>0.82～0.88</strong>；成功修復零檢索癱瘓（如單詞「飯」自 0 筆提升至 156 筆、「麵」自 1 筆提升至 161 筆，2～4 維複合查詢亦穩定維持充足候選集）。</li>
                     <li><strong>高純淨度檢索保證：</strong> 在全數單維與多維測試項目中，單題準確率（<strong>Precision@K</strong>）均維持 <strong>100.0%</strong>，為異質資料庫多路召回與向量邏輯閘設定提供具體工程設計指引。</li>
@@ -93,7 +98,7 @@
                     <i class="fas fa-trophy" style="color: #d97706;"></i> 2026 萬潤盃 大專 AI 應用組 佳作獎
                   </div>
                 </div>
-                <h3>專題組長 & 系統架構開發 | 基於RAG架構之個人化AI美食推薦對話系統</h3>
+                <h3>專題組長 &amp; 系統架構開發 | 基於RAG架構之個人化AI美食推薦對話系統</h3>
                 <p class="exp-brief">主導 4 人團隊研發二階段非同步檢索推薦系統，涵蓋自動化資料管線、DBMS 後台工具、微服務規格交付與向量幾何重排演算法。</p>
               </summary>
               <ul class="detail-list">
@@ -124,14 +129,14 @@
                     <li>實作高效能資料清洗與格式標準化，確保資料庫內容之準確性與一致性。</li>
                   </ul>
                 </li>
-                <li>▹ <strong>內部平台與標記系統 (Internal Tooling & Platform)：</strong>
+                <li>▹ <strong>內部平台與標記系統 (Internal Tooling &amp; Platform)：</strong>
                   <ul>
                     <li>獨立研發 <strong>客製化資料庫管理後台 (DBMS Console)</strong>，整合批次指派、進度儀表板、GIS 地圖視覺化與 RBAC 權限管理模組。</li>
                     <li>開發專用 <strong>Python 桌面端標記輔助工具 (GUI App)</strong>，建立人機協同 (Human-in-the-loop) 標記流程，加速非結構化評論之語意屬性與特徵錄入。</li>
                     <li>制定標準化資料驗收與品管機制，成功驅動團隊高效率完成數千筆高精準度 Ground Truth 資料集入庫。</li>
                   </ul>
                 </li>
-                <li>▹ <strong>系統交付與架構白皮書 (System Delivery & Technical Documentation)：</strong>
+                <li>▹ <strong>系統交付與架構白皮書 (System Delivery &amp; Technical Documentation)：</strong>
                   <ul>
                     <li>主導統籌近 <strong>300 頁</strong> 之工業級《系統架構技術交付白皮書》（獲大專院校圖書館正式永久典藏）。</li>
                     <li><strong>完整架構拓撲與多子系統解耦：</strong> 系統化定義 Android 介面、中樞網關 (API Gateway)、智慧 Agent (MCP)、混合檢索與業務資料庫等 5 大子系統架構圖與端到端通訊協定規範。</li>
@@ -139,7 +144,7 @@
                     <li><strong>全生命週期規格落地：</strong> 詳載實體 RDBMS Schema、Qdrant 多維度向量 Payload、自定義標記日誌、Logic Tree 語法樹規約與邊緣工作站算力價購選型論證，建立高可維護性與可重現之企業級交付標準。</li>
                   </ul>
                 </li>
-                <li>▹ <strong>混合式檢索與重排系統架構 (Hybrid Search & RAG System)：</strong>
+                <li>▹ <strong>混合式檢索與重排系統架構 (Hybrid Search &amp; RAG System)：</strong>
                   <ul>
                     <li><strong>二階段檢索管線架構 (Two-Stage Pipeline)：</strong>
                       以 Python 3.12 (FastAPI/ASGI) 與 Docker-Compose 構建高效非同步微服務；設計「先過濾後檢索 (Filtering then Retrieval)」架構，以 <strong>aiomysql</strong> 進行 RDBMS 剛性條件預篩選（時空距離、營業狀態、設施），大幅收斂檢索空間並提升 99% 以上之計算吞吐量。
@@ -150,7 +155,7 @@
                     <li><strong>非線性對數流形幾何精排演算法 (Geometric Aggregation Ranking)：</strong>
                       設計雙層門控分流（Dual-stage Gating），結合 Haversine 距離非線性倒數阻尼函數、Google 評分、評論人氣（對數縮放）與語意相似度；將多維特徵矩陣映射至對數流形（Log-space），以加權幾何聚合演算法（Weighted Geometric Mean）實現乘法相依排序，徹底根絕極端單項缺失店家的惡性墊檔。
                     </li>
-                    <li><strong>高可用分頁與會話狀態快取 (Session & Caching Mechanism)：</strong>
+                    <li><strong>高可用分頁與會話狀態快取 (Session &amp; Caching Mechanism)：</strong>
                       架構全量候選池快取策略，整合 <strong>Redis</strong> 建立 `search_ssid` 分頁機制與診斷說明旗標（`is_fallback`、`ai_behavior_hint`），有效降低 80% 以上重複向量推論負載，提供下游 LLM 高信心度之上下文摘要與防幻覺指引。
                     </li>
                   </ul>
@@ -208,8 +213,21 @@
     <section id="edu-heading">
       <h2>Education</h2>
       <div class="card">
-        <p style="margin: 0 0 10px 0;"><strong>NKUST 國立高雄科技大學</strong> 資訊工程系 碩士</p>
-        <p><strong>KSU 崑山科技大學</strong> 資訊工程系 學士</p>
+        <div style="margin-bottom: 14px;">
+          <p style="margin: 0 0 4px 0;">
+            <strong>NKUST 國立高雄科技大學</strong> 資訊工程系 碩士（建工校區）
+            <span style="font-size: 0.88em; color: #64748b; margin-left: 6px;">2027-09 – 預計</span>
+          </p>
+          <p style="margin: 0; font-size: 0.92em; color: #475569;">
+            研究方向：網路虛擬化、SDN 封包處理、Linux Netfilter 與雲端系統架構
+          </p>
+        </div>
+        <div>
+          <p style="margin: 0 0 4px 0;">
+            <strong>KSU 崑山科技大學</strong> 資訊工程系 學士
+            <span style="font-size: 0.88em; color: #64748b; margin-left: 6px;">2023-09 – 2027-06（預計）</span>
+          </p>
+        </div>
       </div>
     </section>
 
